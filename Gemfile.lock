@@ -71,6 +71,9 @@ GEM
       responders
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
+    devise_invitable (1.4.0)
+      actionmailer (>= 3.2.6, < 5)
+      devise (>= 3.2.0)
     erubis (2.7.0)
     excon (0.42.1)
     execjs (2.2.2)
@@ -295,6 +298,7 @@ DEPENDENCIES
   carrierwave (= 0.10.0)
   coffee-rails (= 4.1.0)
   devise
+  devise_invitable
   faker (= 1.4.2)
   fog (= 1.23.0)
   foundation-rails
