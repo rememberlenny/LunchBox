@@ -17,6 +17,7 @@ gem 'jbuilder',                '2.2.3'
 gem 'sdoc',                    '0.4.0', group: :doc
 gem 'devise'
 gem 'devise_invitable'
+gem 'devise_uid'
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'

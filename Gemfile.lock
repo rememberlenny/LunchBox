@@ -74,6 +74,9 @@ GEM
     devise_invitable (1.4.0)
       actionmailer (>= 3.2.6, < 5)
       devise (>= 3.2.0)
+    devise_uid (0.1.1)
+      devise (>= 3.0.0)
+      railties (>= 3.0)
     erubis (2.7.0)
     excon (0.42.1)
     execjs (2.2.2)
@@ -299,6 +302,7 @@ DEPENDENCIES
   coffee-rails (= 4.1.0)
   devise
   devise_invitable
+  devise_uid
   faker (= 1.4.2)
   fog (= 1.23.0)
   foundation-rails
