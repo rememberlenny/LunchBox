@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :meetings
+
   devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks' }
   match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
   # The priority is based upon order of creation: first created -> highest priority.
