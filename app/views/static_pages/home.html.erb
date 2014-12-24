@@ -31,9 +31,9 @@
     <h2>Verify</h2>
     <p>Verify your account.</p>
     <ul>
-      <li class="<%= @facebook_status %>">Facebook</li>
-      <li class="<%= @twitter_status %>">Twitter</li>
-      <li class="<%= @linkedin_status %>">LinkedIn</li>
+      <li class=""><%= link_to "Facebook", user_omniauth_authorize_path(:facebook) %></li>
+      <li class=""><%= link_to "Twitter", user_omniauth_authorize_path(:twitter) %></li>
+      <li class=""><%= link_to "Linked In", user_omniauth_authorize_path(:linked_in) %></li>
     </ul>
   </div>
   <div class="large-3 medium-3">
