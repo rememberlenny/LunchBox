@@ -9,11 +9,11 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     address: 'smtp.gmail.com',
     port: '587',
-    enable_starttls_auto: true,
+    # enable_starttls_auto: true,
     user_name: 'ENV["LB_GMAIL_UR"]',
     password: 'ENV["LB_GMAIL_PW"]',
     authentication: :plain,
-    domain: 'dolunchbox.herokuapp.com'
+    domain: 'gmail.com'
   }
   # Code is not reloaded between requests.
   config.cache_classes = true
