@@ -1,36 +1,38 @@
+<%= simple_form_for(@meeting) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+  </div>
+
+
 <div class="row">
   <div class="">
     <h2>Setup</h2>
     <p>Set your preferred meeting day, time, and place.</p>
-      <form action="">
-
-      <select name="time-of-day" class="time-of-day">
-        <option value="early">Early Morning 6am-8am</option>
-        <option value="mid">Mid Morning 8am-10am</option>
-        <option value="late">Late Morning 10am-12pm</option>
-      </select>
+      <%= select_tag(:time_of_day, options_for_select([['Early Morning 6am-8am', 1],['Mid Morning 8am-10am', 2],['Late Morning 10am-12pm', 3]])) %>
       <p>
-        <label>M</label>
-        <input type="checkbox" value="mo" class="day-of-week">
-        <label>Tu</label>
-        <input type="checkbox" value="tu" class="day-of-week">
-        <label>W</label>
-        <input type="checkbox" value="we" class="day-of-week">
-        <label>Th</label>
-        <input type="checkbox" value="th" class="day-of-week">
-        <label>F</label>
-        <input type="checkbox" value="fr" class="day-of-week">
-        <label>Sa</label>
-        <input type="checkbox" value="sa" class="day-of-week">
-        <label>Su</label>
-        <input type="checkbox" value="su" class="day-of-week">
+        <%= check_box_tag(:days_of_week) %>
+        <%= label_tag(:days_of_week, "Mo") %>
+        <%= check_box_tag(:days_of_week) %>
+        <%= label_tag(:days_of_week, "Tu") %>
+        <%= check_box_tag(:days_of_week) %>
+        <%= label_tag(:days_of_week, "We") %>
+        <%= check_box_tag(:days_of_week) %>
+        <%= label_tag(:days_of_week, "Th") %>
+        <%= check_box_tag(:days_of_week) %>
+        <%= label_tag(:days_of_week, "Fr") %>
+        <%= check_box_tag(:days_of_week) %>
+        <%= label_tag(:days_of_week, "Sa") %>
+        <%= check_box_tag(:days_of_week) %>
+        <%= label_tag(:days_of_week, "Su") %>
       </p>
-      </form>
       <a href="" class="button">Save</a>
   </div>
 
-  <div class="large-3 medium-3">
-    <h2>Attend</h2>
-    <%= link_to 'Schedule a local meeting.', meetings_path %>
-  </div>
 </div>
+
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
