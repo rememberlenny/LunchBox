@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :assign_meeting, :edit, :update, :destroy]
 
   # GET /users/:id.:format
   def show
@@ -62,7 +62,11 @@ class UsersController < ApplicationController
 
   private
     def set_user
-      @user = User.find(params[:id])
+      if params[:id] == nil
+        @user = current_user
+      else
+        @user = User.find(params[:id])
+      end
     end
 
     def user_params

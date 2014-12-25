@@ -12,8 +12,6 @@ class User < ActiveRecord::Base
 
   mount_uploader :avatar, AvatarUploader
 
-  has_one :user_setting
-
   def self.find_for_oauth(auth, signed_in_resource = nil)
 
     # Get the identity and user if they exist
