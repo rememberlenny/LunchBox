@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141224213355) do
+ActiveRecord::Schema.define(version: 20141225043629) do
 
   create_table "identities", force: :cascade do |t|
     t.integer  "user_id"
@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 20141224213355) do
     t.integer  "invitations_count",      default: 0
     t.string   "uid"
     t.string   "avatar"
+    t.string   "days_of_week"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
