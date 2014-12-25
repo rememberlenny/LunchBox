@@ -7,26 +7,26 @@
     <div class="">
       <h2>Setup</h2>
       <p>Set your preferred meeting day, time, and place.</p>
-      <%= f.select(:time_of_day, options_for_select([['Early Morning 6am-8am', 1],['Mid Morning 8am-10am', 2],['Late Morning 10am-12pm', 3]])) %>
+      <%= f.select :time_of_day, options_for_select([['Early Morning 6am-8am', 1],['Mid Morning 8am-10am', 2],['Late Morning 10am-12pm', 3]]) %>
     </div>
   </div>
 
   <div class="row">
     <div class="">
-      <%= f.check_box(:days_of_week) %>
-      <%= f.labe(:days_of_week, "Mo") %>
-      <%= f.check_box(:days_of_week) %>
-      <%= f.labe(:days_of_week, "Tu") %>
-      <%= f.check_box(:days_of_week) %>
-      <%= f.labe(:days_of_week, "We") %>
-      <%= f.check_box(:days_of_week) %>
-      <%= f.labe(:days_of_week, "Th") %>
-      <%= f.check_box(:days_of_week) %>
-      <%= f.labe(:days_of_week, "Fr") %>
-      <%= f.check_box(:days_of_week) %>
-      <%= f.labe(:days_of_week, "Sa") %>
-      <%= f.check_box(:days_of_week) %>
-      <%= f.labe(:days_of_week, "Su") %>
+      <%= f.check_box :days_of_week %>
+      <%= f.label :days_of_week, "Mo" %>
+      <%= f.check_box :days_of_week %>
+      <%= f.label :days_of_week, "Tu" %>
+      <%= f.check_box :days_of_week %>
+      <%= f.label :days_of_week, "We" %>
+      <%= f.check_box :days_of_week %>
+      <%= f.label :days_of_week, "Th" %>
+      <%= f.check_box :days_of_week %>
+      <%= f.label :days_of_week, "Fr" %>
+      <%= f.check_box :days_of_week %>
+      <%= f.label :days_of_week, "Sa" %>
+      <%= f.check_box :days_of_week %>
+      <%= f.label :days_of_week, "Su" %>
     </div>
   </div>
 
