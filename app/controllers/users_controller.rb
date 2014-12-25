@@ -13,6 +13,14 @@ class UsersController < ApplicationController
 
   def assign_meeting
     @user = current_user
+
+    if @user.update(user_params)
+      # @user.skip_reconfirmation!
+      sign_in(@user, :bypass => true)
+      redirect_to root_path , notice: 'Your profile was successfully updated.'
+    else
+      @show_errors = true
+    end
   end
 
   # PATCH/PUT /users/:id.:format
@@ -66,7 +74,7 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      accessible = [ :name, :email ] # extend with your own params
+      accessible = [ :name, :email, :time_of_day, :days_of_week ] # extend with your own params
       accessible << [ :password, :password_confirmation ] unless params[:user][:password].blank?
       params.require(:user).permit(accessible)
     end
