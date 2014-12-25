@@ -11,6 +11,10 @@ class UsersController < ApplicationController
     # authorize! :update, @user
   end
 
+  def assign_meeting
+    # authorize! :update, @user
+  end
+
   # PATCH/PUT /users/:id.:format
   def update
     # authorize! :update, @user
