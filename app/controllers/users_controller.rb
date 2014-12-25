@@ -39,7 +39,8 @@ class UsersController < ApplicationController
       if @user.update(user_params)
         # @user.skip_reconfirmation!
         sign_in(@user, :bypass => true)
-        redirect_to root_path, notice: 'Your profile was successfully updated.'
+        puts request.env['omniauth.auth']
+        redirect_to root_path , notice: 'Your profile was successfully updated.'
       else
         @show_errors = true
       end
