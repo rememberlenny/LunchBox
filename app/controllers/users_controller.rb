@@ -11,20 +11,6 @@ class UsersController < ApplicationController
     # authorize! :update, @user
   end
 
-  def assign_meeting
-    @user = current_user
-    respond_to do |format|
-      if @user.update(user_params)
-        sign_in(@user == current_user ? @user : current_user, :bypass => true)
-        format.html { redirect_to @user, notice: 'Your profile was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
   # PATCH/PUT /users/:id.:format
   def update
     # authorize! :update, @user
