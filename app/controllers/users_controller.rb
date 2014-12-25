@@ -13,13 +13,15 @@ class UsersController < ApplicationController
 
   def assign_meeting
     @user = current_user
-
-    if @user.update(user_params)
-      # @user.skip_reconfirmation!
-      sign_in(@user, :bypass => true)
-      redirect_to root_path , notice: 'Your profile was successfully updated.'
-    else
-      @show_errors = true
+    respond_to do |format|
+      if @user.update(user_params)
+        sign_in(@user == current_user ? @user : current_user, :bypass => true)
+        format.html { redirect_to @user, notice: 'Your profile was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: 'edit' }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
     end
   end
 
