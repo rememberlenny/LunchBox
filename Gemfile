@@ -20,7 +20,6 @@ gem 'simple_form'
 gem 'devise'
 gem 'devise_invitable'
 gem 'devise_uid'
-gem "koala"
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
