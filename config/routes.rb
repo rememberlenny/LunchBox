@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
 
   get 'schedule' => 'users#assign_meeting'
-
   root 'static_pages#home'
+  get '/location/update' => 'static_pages#home'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
