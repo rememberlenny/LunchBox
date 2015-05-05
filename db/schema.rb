@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150402043523) do
+ActiveRecord::Schema.define(version: 20150505224835) do
 
   create_table "identities", force: :cascade do |t|
     t.integer  "user_id"
@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(version: 20150402043523) do
     t.boolean  "dow_sunday"
     t.integer  "longitude"
     t.integer  "latitude"
+    t.string   "address"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true

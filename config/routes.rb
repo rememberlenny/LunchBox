@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'location/update'
+
   resources :meetings
 
   devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks' }
@@ -6,7 +8,7 @@ Rails.application.routes.draw do
 
   get 'schedule' => 'users#assign_meeting'
   root 'static_pages#home'
-  get '/location/update' => 'static_pages#home'
+  patch '/location/update' => 'static_pages#home'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
