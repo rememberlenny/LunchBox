@@ -13,6 +13,9 @@
  *= require_tree .
  *= require_self
  *= require foundation_and_overrides
-
-
  */
+
+.row div.large-centered{
+  margin: 0 auto;
+  float: none;
+}

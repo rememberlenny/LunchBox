@@ -1,16 +1,22 @@
-<%= form_for(@user, as: @user, url: location_update_path()) do |f| %>
-  <div class="field">
-    <%= f.label :latitude %><br />
-    <%= f.text_field :latitude, autofocus: true %>
-  </div>
+<div class="row">
 
-  <div class="field">
-    <%= f.label :longitude %><br />
-    <%= f.text_field :longitude %>
-  </div>
+  <div class="large-6 large-centered">
 
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
+    <%= form_for(@user, as: @user, url: location_update_path()) do |f| %>
+      <div class="field">
+        <%= f.label :latitude %><br />
+        <%= f.text_field :latitude, autofocus: true %>
+      </div>
 
+      <div class="field">
+        <%= f.label :longitude %><br />
+        <%= f.text_field :longitude %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Update" %>
+      </div>
+    <% end %>
+
+  </div>
+</div>
