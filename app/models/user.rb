@@ -3,8 +3,9 @@ class User < ActiveRecord::Base
   TEMP_EMAIL_REGEX = /\Achange@me/
 
   # Include default devise modules. Others available are:
+  # :confirmable,
   # :lockable, :timeoutable
-  devise :uid, :invitable, :database_authenticatable, :registerable, :confirmable,
+  devise :uid, :invitable, :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable, :omniauthable,
     :invitable
 
