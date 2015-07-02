@@ -22,8 +22,6 @@ gem 'devise_invitable'
 gem 'devise_uid'
 gem 'omniauth'
 gem 'omniauth-twitter'
-gem 'omniauth-facebook'
-gem 'omniauth-linkedin'
 
 group :development, :test do
   gem 'sqlite3',     '1.3.9'
