@@ -15,7 +15,6 @@
  *= require foundation_and_overrides
  */
 
-.row div.large-centered{
-  margin: 0 auto;
-  float: none;
+.button-margin-bottom-0 .button{
+  margin-bottom: 0px;
 }

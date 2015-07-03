@@ -1,4 +1,79 @@
-<h1>Set up</h1>
-<h2>1. Where are you?</h2>
-<h2>2. What days are you free?</h2>
-<h2>3. What kind of person are you?</h2>
+<link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.15/themes/css/cartodb.css" />
+
+<div class="row button-margin-bottom-0">
+  <div class="column large-12">
+    <h1 class="">Set up</h1>
+  </div>
+  <div class="large-4 column">
+
+    <div id="map" style="height: 500px;"></div>
+
+    <script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
+    <script>
+    // get the viz.json url from the CartoDB Editor
+    // - click on visualize
+    // - create new visualization
+    // - make visualization public
+    // - click on publish
+    // - go to API tab
+
+    window.onload = function() {
+
+
+      cartodb.createVis('map', 'https://rememberlenny.cartodb.com/api/v2/viz/efdf3d06-2112-11e5-af66-0e018d66dc29/viz.json')
+      .done(function(vis, layers) {
+
+        var sublayer = layer.getSubLayer(0);
+
+        sublayer.infowindow.set('template', $('#infowindow_template').html());
+
+        // now, perform any operations you need, e.g. assuming map is a L.Map object:
+        // map.setZoom(3);
+        // map.panTo([50.5, 30.5]);
+      });
+    }
+    </script>
+  </div>
+  <div class="large-8 column">
+    <div class="large-12 large-centered column panel">
+      <h2>1. Where are you?</h2>
+      <p>Pick the neighborhoods you can meet in.</p>
+      <div class="row">
+        <div class="large-8 column">
+          <input type="text" placeholder="Enter the neighborhood">
+        </div>
+        <div class="large-4 column">
+          <%= link_to 'Search', '', :class => 'button large-12 small'%>
+        </div>
+      </div>
+    </div>
+    <div class="large-12 large-centered column panel">
+      <h2>2. What days are you free?</h2>
+      <p>Select the days your mornings are open.</p>
+      <div class="row">
+        <div class="large-12 column">
+
+          <ul class="large-block-grid-7">
+            <li><%= link_to 'Mon', '' %></li>
+            <li><%= link_to 'Tue', '' %></li>
+            <li><%= link_to 'Wed', '' %></li>
+            <li><%= link_to 'Thu', '' %></li>
+            <li><%= link_to 'Fri', '' %></li>
+            <li><%= link_to 'Sat', '' %></li>
+            <li><%= link_to 'Sun', '' %></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="large-12 large-centered column panel">
+
+      <div class="row">
+        <div class="large-12 column">
+          <a href="" class="button disabled large-12 small">Submit</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
