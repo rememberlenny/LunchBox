@@ -6,7 +6,7 @@
   </div>
   <div class="large-4 column">
 
-    <div id="map" style="height: 500px;"></div>
+    <div id="map" style="height: 400px;"></div>
 
     <script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
     <script>
@@ -18,19 +18,7 @@
     // - go to API tab
 
     window.onload = function() {
-
-
-      cartodb.createVis('map', 'https://rememberlenny.cartodb.com/api/v2/viz/efdf3d06-2112-11e5-af66-0e018d66dc29/viz.json')
-      .done(function(vis, layers) {
-
-        var sublayer = layer.getSubLayer(0);
-
-        sublayer.infowindow.set('template', $('#infowindow_template').html());
-
-        // now, perform any operations you need, e.g. assuming map is a L.Map object:
-        // map.setZoom(3);
-        // map.panTo([50.5, 30.5]);
-      });
+      cartodb.createVis('map', 'https://rememberlenny.cartodb.com/api/v2/viz/b44707de-211b-11e5-908e-0e0c41326911/viz.json');
     }
     </script>
   </div>
