@@ -27,11 +27,18 @@
       <h2>1. Where are you?</h2>
       <p>Pick the neighborhoods you can meet in.</p>
       <div class="row">
-        <div class="large-8 column">
-          <input type="text" placeholder="Enter the neighborhood">
-        </div>
-        <div class="large-4 column">
-          <%= link_to 'Search', '', :class => 'button large-12 small'%>
+        <div class="large-11 column large-centered">
+          <ul class="large-block-grid-3">
+            <li class="neighborhoods" name="Bushwick">Bushwick</li>
+            <li class="neighborhoods" name="Downtown">Downtown</li>
+            <li class="neighborhoods" name="Harlem">Harlem</li>
+            <li class="neighborhoods" name="Midtown">Midtown</li>
+            <li class="neighborhoods" name="Queens">Queens</li>
+            <li class="neighborhoods" name="Red Hook">Red Hook</li>
+            <li class="neighborhoods" name="Upper East Side">Upper East Side</li>
+            <li class="neighborhoods" name="Upper West Side">Upper West Side</li>
+            <li class="neighborhoods" name="Williamsburg">Williamsburg</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -39,16 +46,15 @@
       <h2>2. What days are you free?</h2>
       <p>Select the days your mornings are open.</p>
       <div class="row">
-        <div class="large-12 column">
-
+        <div class="large-11 large-centered column">
           <ul class="large-block-grid-7">
-            <li><%= link_to 'Mon', '' %></li>
-            <li><%= link_to 'Tue', '' %></li>
-            <li><%= link_to 'Wed', '' %></li>
-            <li><%= link_to 'Thu', '' %></li>
-            <li><%= link_to 'Fri', '' %></li>
-            <li><%= link_to 'Sat', '' %></li>
-            <li><%= link_to 'Sun', '' %></li>
+            <li class="days-of-week" name="Monday">Mon</li>
+            <li class="days-of-week" name="Tuesday">Tues</li>
+            <li class="days-of-week" name="Wednesday">Wed</li>
+            <li class="days-of-week" name="Thursday">Thur</li>
+            <li class="days-of-week" name="Friday">Fri</li>
+            <li class="days-of-week" name="Saturday">Sat</li>
+            <li class="days-of-week" name="Sunday">Sun</li>
           </ul>
         </div>
       </div>

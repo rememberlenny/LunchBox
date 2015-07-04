@@ -1,0 +1,99 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require jquery-ui
+ *= require foundation_and_overrides
+ */
+
+.button-margin-bottom-0 .button{
+  margin-bottom: 0px;
+}
+
+li.days-of-week{
+  opacity: .5;
+  height: 3em;
+  margin-bottom: 0px;
+  padding-top: .75em;
+  padding-bottom: .75em;
+  text-align: center;
+  &:hover{
+    opacity: .7;
+  }
+}
+
+.days-of-week[name="Monday"] {
+  background: #7ABF93;
+}
+.days-of-week[name="Tuesday"] {
+  background: #D0D6D2;
+}
+.days-of-week[name="Wednesday"] {
+  background: #B8C9BC;
+}
+.days-of-week[name="Thursday"] {
+  background: #476956;
+}
+.days-of-week[name="Friday"] {
+  background: #BEC9C3;
+}
+.days-of-week[name="Saturday"] {
+  background: #4F691C;
+}
+.days-of-week[name="Sunday"] {
+  background: #42BF93;
+}
+
+li.neighborhoods {
+
+  opacity: .5;
+  height: 3em;
+  margin-bottom: 0px;
+  padding-top: .75em;
+  padding-bottom: .75em;
+  text-align: center;
+  &:hover{
+    opacity: .7;
+  }
+}
+.neighborhoods.selected {
+  opacity: .9;
+}
+
+.neighborhoods[name="Bushwick"] {
+   background: #A6CEE3;
+}
+.neighborhoods[name="Downtown"] {
+   background: #1F78B4;
+}
+.neighborhoods[name="Harlem"] {
+   background: #B2DF8A;
+}
+.neighborhoods[name="Midtown"] {
+   background: #33A02C;
+}
+.neighborhoods[name="Queens"] {
+   background: #FB9A99;
+}
+.neighborhoods[name="Red Hook"] {
+   background: #E31A1C;
+}
+.neighborhoods[name="Upper East Side"] {
+   background: #FDBF6F;
+}
+.neighborhoods[name="Upper West Side"] {
+   background: #FF7F00;
+}
+.neighborhoods[name="Williamsburg"] {
+   background: #CAB2D6;
+}
