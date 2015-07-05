@@ -41,7 +41,16 @@ function updateReport(){
     console.log(option);
     if(option != undefined){
       for(j = 0; j < option.length; j++){
-        $('.'+reportName).append('<span class="report-el">'+option[j]+'</span>');
+        var $el = $('.'+reportName);
+        $el.append('<span class="report-el">'+option[j]+'</span>');
+        $('.report-content span').on('click', function(e){
+          var $this = $(this);
+          var content = $this.html();
+          console.log(content);
+          $clickedEl = $('[name="'+content+'"]');
+          $clickedEl.removeClass('selected');
+          $this.remove();
+        });
       }
     }
   }
