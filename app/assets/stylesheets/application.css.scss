@@ -65,7 +65,7 @@ li.days-of-week{
   padding-bottom: .75em;
   text-align: center;
   &:hover{
-    opacity: .7;
+    opacity: .2;
   }
 }
 
@@ -100,11 +100,14 @@ li.neighborhoods {
   padding-bottom: .75em;
   text-align: center;
   &:hover{
-    opacity: .7;
+    opacity: .2;
   }
 }
-.neighborhoods.selected {
+.neighborhoods.selected, .days-of-week.selected{
   opacity: .9;
+  &:hover{
+    opacity: .7;
+  }
 }
 
 [name="Bushwick"] {

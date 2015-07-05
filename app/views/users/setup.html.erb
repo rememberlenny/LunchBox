@@ -20,15 +20,15 @@
       <div class="row">
         <div class="large-11 column large-centered toggle">
           <ul class="large-block-grid-3 medium-block-grid-3 small-block-grid-2">
-            <li class="neighborhoods" title="neighborhood" name="Bushwick">Bushwick</li>
-            <li class="neighborhoods" title="neighborhood" name="Downtown">Downtown</li>
-            <li class="neighborhoods" title="neighborhood" name="Harlem">Harlem</li>
-            <li class="neighborhoods" title="neighborhood" name="Midtown">Midtown</li>
-            <li class="neighborhoods" title="neighborhood" name="Queens">Queens</li>
-            <li class="neighborhoods" title="neighborhood" name="Red Hook">Red Hook</li>
-            <li class="neighborhoods" title="neighborhood" name="Upper East Side">Upper East Side</li>
-            <li class="neighborhoods" title="neighborhood" name="Upper West Side">Upper West Side</li>
-            <li class="neighborhoods" title="neighborhood" name="Williamsburg">Williamsburg</li>
+            <li class="neighborhoods <% if current_user.loc_bushwick %>selected<% end %>" title="neighborhood" name="Bushwick">Bushwick</li>
+            <li class="neighborhoods <% if current_user.loc_downtown %>selected<% end %>" title="neighborhood" name="Downtown">Downtown</li>
+            <li class="neighborhoods <% if current_user.loc_harlem %>selected<% end %>" title="neighborhood" name="Harlem">Harlem</li>
+            <li class="neighborhoods <% if current_user.loc_midtown %>selected<% end %>" title="neighborhood" name="Midtown">Midtown</li>
+            <li class="neighborhoods <% if current_user.loc_queens %>selected<% end %>" title="neighborhood" name="Queens">Queens</li>
+            <li class="neighborhoods <% if current_user.loc_redhook %>selected<% end %>" title="neighborhood" name="Red Hook">Red Hook</li>
+            <li class="neighborhoods <% if current_user.loc_ues %>selected<% end %>" title="neighborhood" name="Upper East Side">Upper East Side</li>
+            <li class="neighborhoods <% if current_user.loc_uws %>selected<% end %>" title="neighborhood" name="Upper West Side">Upper West Side</li>
+            <li class="neighborhoods <% if current_user.loc_williamsburg %>selected<% end %>" title="neighborhood" name="Williamsburg">Williamsburg</li>
           </ul>
         </div>
       </div>
@@ -39,13 +39,13 @@
       <div class="row">
         <div class="large-11 large-centered column toggle">
           <ul class="large-block-grid-7 medium-block-grid-4 small-block-grid-3">
-            <li class="days-of-week" title="daysOfWeek" name="Monday">Mon</li>
-            <li class="days-of-week" title="daysOfWeek" name="Tuesday">Tues</li>
-            <li class="days-of-week" title="daysOfWeek" name="Wednesday">Wed</li>
-            <li class="days-of-week" title="daysOfWeek" name="Thursday">Thur</li>
-            <li class="days-of-week" title="daysOfWeek" name="Friday">Fri</li>
-            <li class="days-of-week" title="daysOfWeek" name="Saturday">Sat</li>
-            <li class="days-of-week" title="daysOfWeek" name="Sunday">Sun</li>
+            <li class="days-of-week <% if current_user.dow_mo %>selected<% end %>" title="daysOfWeek" name="Monday">Mon</li>
+            <li class="days-of-week <% if current_user.dow_tu %>selected<% end %>" title="daysOfWeek" name="Tuesday">Tues</li>
+            <li class="days-of-week <% if current_user.dow_we %>selected<% end %>" title="daysOfWeek" name="Wednesday">Wed</li>
+            <li class="days-of-week <% if current_user.dow_th %>selected<% end %>" title="daysOfWeek" name="Thursday">Thur</li>
+            <li class="days-of-week <% if current_user.dow_fr %>selected<% end %>" title="daysOfWeek" name="Friday">Fri</li>
+            <li class="days-of-week <% if current_user.dow_sa %>selected<% end %>" title="daysOfWeek" name="Saturday">Sat</li>
+            <li class="days-of-week <% if current_user.dow_su %>selected<% end %>" title="daysOfWeek" name="Sunday">Sun</li>
           </ul>
         </div>
       </div>
