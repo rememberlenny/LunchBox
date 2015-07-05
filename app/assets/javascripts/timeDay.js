@@ -71,3 +71,11 @@ function checkSelected(){
   });
 }
 
+function submitProfileUpdates(){
+  var count = $('.panel').length;
+  $('.panel').each(function(i, item){
+    if(i != count-1){
+      $(item).slideUp();
+    }
+  })
+}
