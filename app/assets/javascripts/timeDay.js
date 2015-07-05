@@ -41,11 +41,8 @@ function updateReport(){
     console.log(option);
     if(option != undefined){
       for(j = 0; j < option.length; j++){
-        reports[reportName].push(option[j]);
+        $('.'+reportName).append('<span class="report-el">'+option[j]+'</span>');
       }
-      var reportContent = reports[reportName].join(', ');
-      console.log('reportContent: ' + reportContent);
-      $('.'+reportName).html(reportContent);
     }
   }
 }

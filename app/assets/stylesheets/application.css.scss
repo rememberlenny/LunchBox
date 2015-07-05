@@ -22,6 +22,37 @@
   }
 }
 
+.report-el{
+  padding: 5px 27px 5px 10px;
+  margin: 5px 5px;
+  background: rgb(173, 216, 230);
+  border-radius: 5px;
+  border: 1px solid rgb(153, 153, 153);
+  font-size: 12px;
+  display: inline-block;
+  position: relative;
+  &:after {
+    content: '+';
+    color: #6b6b6b;
+    position: absolute;
+    right: -3px;
+    display: block;
+    top: -1px;
+    font-size: 21px;
+    transform: rotate(45deg);
+    height: 12px;
+    width: 12px;
+    text-align: center;
+    opacity: .7;
+  }
+  &:hover{
+    &:after {
+      opacity: 1;
+    }
+  }
+}
+
+
 .button-margin-bottom-0 .button{
   margin-bottom: 0px;
 }
