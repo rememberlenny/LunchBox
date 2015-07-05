@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150702221416) do
+ActiveRecord::Schema.define(version: 20150705032647) do
 
   create_table "identities", force: :cascade do |t|
     t.integer  "user_id"
@@ -61,6 +61,22 @@ ActiveRecord::Schema.define(version: 20150702221416) do
     t.integer  "longitude"
     t.integer  "latitude"
     t.string   "address"
+    t.boolean  "loc_bushwick"
+    t.boolean  "loc_downtown"
+    t.boolean  "loc_harlem"
+    t.boolean  "loc_midtown"
+    t.boolean  "loc_queens"
+    t.boolean  "loc_redhook"
+    t.boolean  "loc_ues"
+    t.boolean  "loc_uws"
+    t.boolean  "loc_williamsburg"
+    t.boolean  "dow_mo"
+    t.boolean  "dow_tu"
+    t.boolean  "dow_we"
+    t.boolean  "dow_th"
+    t.boolean  "dow_fr"
+    t.boolean  "dow_sa"
+    t.boolean  "dow_su"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
