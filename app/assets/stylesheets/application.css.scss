@@ -16,6 +16,12 @@
  *= require foundation_and_overrides
  */
 
+.toggle li{
+  &.selected{
+    opacity: 1;
+  }
+}
+
 .button-margin-bottom-0 .button{
   margin-bottom: 0px;
 }
@@ -33,22 +39,22 @@ li.days-of-week{
 }
 
 .days-of-week[name="Monday"] {
-  background: #7ABF93;
-}
-.days-of-week[name="Tuesday"] {
   background: #D0D6D2;
 }
-.days-of-week[name="Wednesday"] {
+.days-of-week[name="Tuesday"] {
   background: #B8C9BC;
 }
-.days-of-week[name="Thursday"] {
-  background: #476956;
+.days-of-week[name="Wednesday"] {
+  background: #B0C9BC;
 }
-.days-of-week[name="Friday"] {
+.days-of-week[name="Thursday"] {
   background: #BEC9C3;
 }
+.days-of-week[name="Friday"] {
+  background: #B8C9CC;
+}
 .days-of-week[name="Saturday"] {
-  background: #4F691C;
+  background: #7ABF93;
 }
 .days-of-week[name="Sunday"] {
   background: #42BF93;
