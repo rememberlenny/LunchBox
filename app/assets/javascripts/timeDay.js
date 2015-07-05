@@ -72,6 +72,13 @@ function checkSelected(){
   checkSubmitValidation();
 }
 
+$('.submitFormUpdate').on('click', function(e){
+  e.preventDefault();
+  if( !$(this).hasClass('disabled') ){
+    submitProfileUpdates();
+  }
+});
+
 function checkSubmitValidation(){
   var $button = $('.submitFormUpdate');
   if(LB.savedData != undefined){
@@ -94,4 +101,5 @@ function submitProfileUpdates(){
       $(item).slideUp();
     }
   })
+  $('#map').slideUp();
 }
