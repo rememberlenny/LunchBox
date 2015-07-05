@@ -97,9 +97,19 @@ function checkSubmitValidation(){
 function submitProfileUpdates(){
   var count = $('.panel').length;
   $('.panel').each(function(i, item){
-    if(i != count-1){
+    if(i != count-1 && i != count-2){
       $(item).slideUp();
     }
-  })
+  });
+  $('.report-content span').unbind('click');
   $('#map').slideUp();
+  $('.submitFormWrap').html('<h3>Submitting...</h3>');
+  setTimeout(function(){
+    $('.reviewBox').slideUp();
+    $('.submitFormWrap h3').html('Continue');
+    $('.submitFormWrap').append('<p><a href="">Going back to your dashboard.</a></p>');
+    setTimeout(function(){
+      location.href = location.origin;
+    }, 2000);
+  }, 2000);
 }
