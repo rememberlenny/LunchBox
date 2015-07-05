@@ -42,7 +42,7 @@ function updateReport(){
     if(option != undefined){
       for(j = 0; j < option.length; j++){
         var $el = $('.'+reportName);
-        $el.append('<span class="report-el">'+option[j]+'</span>');
+        $el.append('<span class="report-el" name="'+option[j]+'">'+option[j]+'</span>');
         $('.report-content span').on('click', function(e){
           var $this = $(this);
           var content = $this.html();

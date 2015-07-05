@@ -69,25 +69,25 @@ li.days-of-week{
   }
 }
 
-.days-of-week[name="Monday"] {
+[name="Monday"] {
   background: #D0D6D2;
 }
-.days-of-week[name="Tuesday"] {
+[name="Tuesday"] {
   background: #B8C9BC;
 }
-.days-of-week[name="Wednesday"] {
+[name="Wednesday"] {
   background: #B0C9BC;
 }
-.days-of-week[name="Thursday"] {
+[name="Thursday"] {
   background: #BEC9C3;
 }
-.days-of-week[name="Friday"] {
+[name="Friday"] {
   background: #B8C9CC;
 }
-.days-of-week[name="Saturday"] {
+[name="Saturday"] {
   background: #7ABF93;
 }
-.days-of-week[name="Sunday"] {
+[name="Sunday"] {
   background: #42BF93;
 }
 
@@ -107,30 +107,30 @@ li.neighborhoods {
   opacity: .9;
 }
 
-.neighborhoods[name="Bushwick"] {
+[name="Bushwick"] {
    background: #A6CEE3;
 }
-.neighborhoods[name="Downtown"] {
+[name="Downtown"] {
    background: #1F78B4;
 }
-.neighborhoods[name="Harlem"] {
+[name="Harlem"] {
    background: #B2DF8A;
 }
-.neighborhoods[name="Midtown"] {
+[name="Midtown"] {
    background: #33A02C;
 }
-.neighborhoods[name="Queens"] {
+[name="Queens"] {
    background: #FB9A99;
 }
-.neighborhoods[name="Red Hook"] {
+[name="Red Hook"] {
    background: #E31A1C;
 }
-.neighborhoods[name="Upper East Side"] {
+[name="Upper East Side"] {
    background: #FDBF6F;
 }
-.neighborhoods[name="Upper West Side"] {
+[name="Upper West Side"] {
    background: #FF7F00;
 }
-.neighborhoods[name="Williamsburg"] {
+[name="Williamsburg"] {
    background: #CAB2D6;
 }
