@@ -6,6 +6,9 @@ class UsersController < ApplicationController
     # authorize! :read, @user
   end
 
+  def setup
+  end
+
   # GET /users/:id/edit
   def edit
     # authorize! :update, @user
@@ -72,8 +75,11 @@ class UsersController < ApplicationController
     def user_params
       accessible = [ :name, :email, :time_of_day, :days_of_week ] # extend with your own params
       accessible << [ :address, :longitude, :latitude ]
-      accessible << [ :tod_morning_early, :tod_morning_middle, :tod_morning_late ]
-      accessible << [ :dow_monday, :dow_tuesday, :dow_wednesday, :dow_thursday, :dow_friday, :dow_saturday, :dow_sunday ]
+      accessible << [ :loc_bushwick, :loc_downtown, :loc_harlem ]
+      accessible << [ :loc_midtown, :loc_queens, :loc_redhook ]
+      accessible << [ :loc_ues, :loc_uws, :loc_williamsburg ]
+      accessible << [ :dow_mo, :dow_tu, :dow_we, :dow_th, :dow_fr ]
+      accessible << [ :dow_sa, :dow_su ]
       accessible << [ :password, :password_confirmation ] unless params[:user][:password].blank?
       params.require(:user).permit(accessible)
     end

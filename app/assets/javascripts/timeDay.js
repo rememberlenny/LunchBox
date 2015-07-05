@@ -109,7 +109,7 @@ function submitProfileUpdates(){
     $('.submitFormWrap h3').html('Continue');
     $('.submitFormWrap').append('<p><a href="">Going back to your dashboard.</a></p>');
     setTimeout(function(){
-      location.href = location.origin;
+      window.location.href = location.origin;
     }, 2000);
   }, 2000);
 }
