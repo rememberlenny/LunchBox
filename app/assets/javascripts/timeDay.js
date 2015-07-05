@@ -69,6 +69,22 @@ function checkSelected(){
     }
     LB.savedData[cat].push($item.attr('name'));
   });
+  checkSubmitValidation();
+}
+
+function checkSubmitValidation(){
+  var $button = $('.submitFormUpdate');
+  if(LB.savedData != undefined){
+    if(LB.savedData.neighborhood != undefined && LB.savedData.daysOfWeek != undefined){
+      console.log('Check success');
+      $button.attr('disabled', false);
+      $button.removeClass('disabled');
+    } else {
+      console.log('Check failed');
+      $button.attr('disabled', true);
+      $button.addClass('disabled');
+    }
+  }
 }
 
 function submitProfileUpdates(){
