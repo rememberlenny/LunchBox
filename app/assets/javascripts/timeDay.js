@@ -21,7 +21,7 @@ $('.toggle li').on('click', function(e){
   }
   checkSelected();
   updateReport();
-  console.log(LB.savedData);
+  // console.log(LB.savedData);
 });
 
 function updateReport(){
@@ -36,9 +36,9 @@ function updateReport(){
     if(reports[reportName] == undefined){
       reports[reportName] = [];
     }
-    console.log(options[i]);
+    // console.log(options[i]);
     option = LB.savedData[options[i]];
-    console.log(option);
+    // console.log(option);
     if(option != undefined){
       for(j = 0; j < option.length; j++){
         var $el = $('.'+reportName);
@@ -46,10 +46,11 @@ function updateReport(){
         $('.report-content span').on('click', function(e){
           var $this = $(this);
           var content = $this.html();
-          console.log(content);
+          // console.log(content);
           $clickedEl = $('[name="'+content+'"]');
           $clickedEl.removeClass('selected');
           $this.remove();
+          checkSelected();
         });
       }
     }
