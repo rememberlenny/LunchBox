@@ -24,8 +24,7 @@
         <% if user_signed_in? %>
            <strong><%= link_to '@'+ current_user.username.to_s, root_path %></strong>
            |
-          <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-          <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+          <%= link_to 'Update Profile', edit_user_registration_path, :class => 'navbar-link' %>
         <% end %>
 
       </div>
@@ -33,6 +32,11 @@
 
     <%= yield %>
 
+    <p class="text-center">
+      <% if user_signed_in? %>
+        <small><%= link_to "Logout", destroy_user_session_path, method: :delete  %></small>
+      <% end %>
+    </p>
     <%= link_to root_path do %>
       <%= image_tag 'Breakfast_Of_Bacon_And_Eggs_clip_art_hight.png', class: 'breakfast-icon' %>
     <% end %>

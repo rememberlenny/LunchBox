@@ -1,0 +1,60 @@
+ <div class="row">
+    <div class="large-6 column">
+      <h3>Neighborhood</h3>
+      <p class="neighborhood-report report-content">
+        <% if current_user.loc_bushwick %>
+          <span class="report-el" name="Upper East Side">Bushwick</span>
+        <% end %>
+        <% if current_user.loc_downtown %>
+          <span class="report-el" name="Upper East Side">Downtown</span>
+        <% end %>
+        <% if current_user.loc_harlem %>
+          <span class="report-el" name="Upper East Side">Harlem</span>
+        <% end %>
+        <% if current_user.loc_midtown %>
+          <span class="report-el" name="Upper East Side">Midtown</span>
+        <% end %>
+        <% if current_user.loc_queens %>
+          <span class="report-el" name="Upper East Side">Queens</span>
+        <% end %>
+        <% if current_user.loc_redhook %>
+          <span class="report-el" name="Upper East Side">Redhook</span>
+        <% end %>
+        <% if current_user.loc_ues %>
+          <span class="report-el" name="Upper East Side">Upper East Side</span>
+        <% end %>
+        <% if current_user.loc_uws %>
+          <span class="report-el" name="Upper East Side">Upper West Side</span>
+        <% end %>
+        <% if current_user.loc_williamsburg %>
+          <span class="report-el" name="Upper East Side">Williamsburg</span>
+        <% end %>
+      </p>
+    </div>
+    <div class="large-6 column">
+      <h3>Days</h3>
+      <p class="daysOfWeek-report report-content">
+        <% if current_user.dow_mo %>
+          <span class="report-el" name="Monday">Monday</span>
+        <% end %>
+        <% if current_user.dow_tu %>
+          <span class="report-el" name="Tuesday">Tuesday</span>
+        <% end %>
+        <% if current_user.dow_we %>
+          <span class="report-el" name="Wednesday">Wednesday</span>
+        <% end %>
+        <% if current_user.dow_th %>
+          <span class="report-el" name="Thursday">Thursday</span>
+        <% end %>
+        <% if current_user.dow_fr %>
+          <span class="report-el" name="Friday">Friday</span>
+        <% end %>
+        <% if current_user.dow_sa %>
+          <span class="report-el" name="Saturday">Saturday</span>
+        <% end %>
+        <% if current_user.dow_su %>
+          <span class="report-el" name="Sunday">Sunday</span>
+        <% end %>
+      </p>
+    </div>
+  </div>
