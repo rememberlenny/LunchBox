@@ -59,22 +59,17 @@ a.secondary.button{
   input[type="file"], input[type="checkbox"], input[type="radio"], select{
     display: none;
   }
-  label{
-    &.selected{
+  &.selected{
+    label{
       opacity: 1;
+      color: white!important;
     }
   }
 }
 
-.report-el{
+.setup-settings .report-el{
+  cursor:pointer;
   padding: 5px 27px 5px 10px;
-  margin: 5px 5px;
-  background: rgb(173, 216, 230);
-  border-radius: 5px;
-  border: 1px solid rgb(153, 153, 153);
-  font-size: 12px;
-  display: inline-block;
-  position: relative;
   &:after {
     content: '+';
     color: #6b6b6b;
@@ -95,6 +90,16 @@ a.secondary.button{
     }
   }
 }
+.report-el{
+  padding: 5px 10px 5px 10px;
+  margin: 5px 5px;
+  background: rgb(173, 216, 230);
+  border-radius: 5px;
+  border: 1px solid rgb(153, 153, 153);
+  font-size: 12px;
+  display: inline-block;
+  position: relative;
+}
 
 
 .button-margin-bottom-0 .button{
@@ -102,82 +107,82 @@ a.secondary.button{
 }
 
 li.days-of-week label{
-  opacity: .5;
+  opacity: .3;
   height: 3em;
   margin-bottom: 0px;
   padding-top: .75em;
   padding-bottom: .75em;
   text-align: center;
   &:hover{
-    opacity: .2;
+    opacity: .1;
   }
 }
 
-[name="Monday"] label{
+[name="Monday"]{
   background: #D0D6D2;
 }
-[name="Tuesday"] label{
+[name="Tuesday"]{
   background: #B8C9BC;
 }
-[name="Wednesday"] label{
+[name="Wednesday"]{
   background: #B0C9BC;
 }
-[name="Thursday"] label{
+[name="Thursday"]{
   background: #BEC9C3;
 }
-[name="Friday"] label{
+[name="Friday"]{
   background: #B8C9CC;
 }
-[name="Saturday"] label{
+[name="Saturday"]{
   background: #7ABF93;
 }
-[name="Sunday"] label{
+[name="Sunday"]{
   background: #42BF93;
 }
 
 li.neighborhoods label{
 
-  opacity: .5;
+  opacity: .3;
   height: 3em;
   margin-bottom: 0px;
   padding-top: .75em;
   padding-bottom: .75em;
   text-align: center;
   &:hover{
-    opacity: .2;
+    opacity: .1;
   }
 }
 .neighborhoods.selected label, .days-of-week.selected label{
   opacity: .9;
   &:hover{
-    opacity: .7;
+    opacity: .8;
   }
 }
 
-[name="Bushwick"] label{
+[name="Bushwick"]{
    background: #A6CEE3;
 }
-[name="Downtown"] label{
+[name="Downtown"]{
    background: #1F78B4;
 }
-[name="Harlem"] label{
+[name="Harlem"]{
    background: #B2DF8A;
 }
-[name="Midtown"] label{
+[name="Midtown"]{
    background: #33A02C;
 }
-[name="Queens"] label{
+[name="Queens"]{
    background: #FB9A99;
 }
-[name="Red Hook"] label{
+[name="Red Hook"]{
    background: #E31A1C;
 }
-[name="Upper East Side"] label{
+[name="Upper East Side"]{
    background: #FDBF6F;
 }
-[name="Upper West Side"] label{
+[name="Upper West Side"]{
    background: #FF7F00;
 }
-[name="Williamsburg"] label{
+[name="Williamsburg"]{
    background: #CAB2D6;
 }

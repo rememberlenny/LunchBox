@@ -12,109 +12,116 @@
 var LB = LB || {};
 LB.savedData = {};
 
-$(document).on('ready', function(){
+LB.blastOff = function(){
   checkSelected();
   updateReport();
-});
 
-$('.toggle li label').on('click', function(e){
-  var $this = $(this);
-  if( $this.parent().hasClass('selected') ){
-    $this.parent().removeClass('selected');
-  } else {
-    $this.parent().addClass('selected');
-  }
-  checkSelected();
-  updateReport();
-  // console.log(LB.savedData);
-});
-
-function updateReport(){
-  var options = ['daysOfWeek', 'neighborhood'];
-  var reports = {};
-  var $reportContent = $('.report-content');
-  $reportContent.each(function(i, item){
-    $(item).html('');
-  });
-  for(i = 0; i < options.length; i++){
-    var reportName = options[i]+'-report';
-    if(reports[reportName] == undefined){
-      reports[reportName] = [];
+  $('.toggle li label').on('click', function(e){
+    var $this = $(this);
+    if( $this.parent().hasClass('selected') ){
+      $this.parent().removeClass('selected');
+    } else {
+      $this.parent().addClass('selected');
     }
-    // console.log(options[i]);
-    option = LB.savedData[options[i]];
-    // console.log(option);
-    if(option != undefined){
-      for(j = 0; j < option.length; j++){
-        var $el = $('.'+reportName);
-        $el.append('<span class="report-el" name="'+option[j]+'">'+option[j]+'</span>');
-        $('.report-content span').on('click', function(e){
-          var $this = $(this);
-          var content = $this.html();
-          // console.log(content);
-          $clickedEl = $('[name="'+content+'"]');
-          $clickedEl.removeClass('selected');
-          $this.remove();
-          checkSelected();
-        });
+    checkSelected();
+    updateReport();
+    // console.log(LB.savedData);
+  });
+
+  function updateReport(){
+    var options = ['daysOfWeek', 'neighborhood'];
+    var reports = {};
+    var $reportContent = $('.report-content');
+    $reportContent.each(function(i, item){
+      $(item).html('');
+    });
+    for(i = 0; i < options.length; i++){
+      var reportName = options[i]+'-report';
+      if(reports[reportName] == undefined){
+        reports[reportName] = [];
+      }
+      // console.log(options[i]);
+      option = LB.savedData[options[i]];
+      // console.log(option);
+      if(option != undefined){
+        for(j = 0; j < option.length; j++){
+          var $el = $('.'+reportName);
+          $el.append('<span class="report-el" name="'+option[j]+'">'+option[j]+'</span>');
+          $('.report-content span').on('click', function(e){
+            var $this = $(this);
+            var content = $this.html();
+            // console.log(content);
+            $clickedEl = $('[name="'+content+'"]');
+            $clickedEl.removeClass('selected');
+            $this.remove();
+            checkSelected();
+          });
+        }
       }
     }
   }
-}
 
-function checkSelected(){
-  LB.savedData = {};
-  var cat,
-      $selected = $('.toggle li.selected');
-  $selected.each(function(i, item){
-    var $item = $(item);
-    cat = $item.attr('title');
-    if(LB.savedData[cat] == undefined){
-      LB.savedData[cat] = [];
+  function checkSelected(){
+    LB.savedData = {};
+    var cat,
+        $selected = $('.toggle li.selected');
+    $selected.each(function(i, item){
+      var $item = $(item);
+      cat = $item.attr('title');
+      if(LB.savedData[cat] == undefined){
+        LB.savedData[cat] = [];
+      }
+      LB.savedData[cat].push($item.attr('name'));
+    });
+    checkSubmitValidation();
+  }
+
+  // $('.submitFormUpdate').on('click', function(e){
+  //   e.preventDefault();
+  //   if( !$(this).hasClass('disabled') ){
+  //     submitProfileUpdates();
+  //   }
+  // });
+
+  function checkSubmitValidation(){
+    var $button = $('.submitFormUpdate');
+    if(LB.savedData != undefined){
+      if(LB.savedData.neighborhood != undefined && LB.savedData.daysOfWeek != undefined){
+        console.log('Check success');
+        $button.attr('disabled', false);
+        $button.removeClass('disabled');
+      } else {
+        console.log('Check failed');
+        $button.attr('disabled', true);
+        $button.addClass('disabled');
+      }
     }
-    LB.savedData[cat].push($item.attr('name'));
-  });
-  checkSubmitValidation();
-}
+  }
 
-// $('.submitFormUpdate').on('click', function(e){
-//   e.preventDefault();
-//   if( !$(this).hasClass('disabled') ){
-//     submitProfileUpdates();
-//   }
-// });
-
-function checkSubmitValidation(){
-  var $button = $('.submitFormUpdate');
-  if(LB.savedData != undefined){
-    if(LB.savedData.neighborhood != undefined && LB.savedData.daysOfWeek != undefined){
-      console.log('Check success');
-      $button.attr('disabled', false);
-      $button.removeClass('disabled');
-    } else {
-      console.log('Check failed');
-      $button.attr('disabled', true);
-      $button.addClass('disabled');
-    }
+  function submitProfileUpdates(){
+    var count = $('.panel').length;
+    $('.panel').each(function(i, item){
+      if(i != count-1 && i != count-2){
+        $(item).slideUp();
+      }
+    });
+    $('.report-content span').unbind('click');
+    $('#map').slideUp();
+    $('.submitFormWrap').html('<h3>Submitting...</h3>');
+    setTimeout(function(){
+      $('.reviewBox').slideUp();
+      $('.submitFormWrap h3').html('Continue');
+      $('.submitFormWrap').append('<p><a href="">Going back to your dashboard.</a></p>');
+      setTimeout(function(){
+        window.location.href = location.origin;
+      }, 2000);
+    }, 2000);
   }
 }
 
-function submitProfileUpdates(){
-  var count = $('.panel').length;
-  $('.panel').each(function(i, item){
-    if(i != count-1 && i != count-2){
-      $(item).slideUp();
-    }
-  });
-  $('.report-content span').unbind('click');
-  $('#map').slideUp();
-  $('.submitFormWrap').html('<h3>Submitting...</h3>');
-  setTimeout(function(){
-    $('.reviewBox').slideUp();
-    $('.submitFormWrap h3').html('Continue');
-    $('.submitFormWrap').append('<p><a href="">Going back to your dashboard.</a></p>');
-    setTimeout(function(){
-      window.location.href = location.origin;
-    }, 2000);
-  }, 2000);
-}
+
+$(document).on('ready', function(){
+  if($('.setup-settings').length > 0){
+    LB.blastOff();
+  }
+});
