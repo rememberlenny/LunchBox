@@ -1,6 +1,6 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.  # General Settings
-  config.app_domain = 'http://dolunchbox.herokuapp.com'
+  config.app_domain = 'http://lunchboxapp.herokuapp.com'
 
   # Email
   config.action_mailer.delivery_method = :smtp
