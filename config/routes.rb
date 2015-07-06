@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   }
   match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
 
+  get 'about'   => 'static_pages#about'
+  get 'contact' => 'static_pages#contact'
   get 'setup' => 'users#setup'
   get 'schedule' => 'users#assign_meeting'
   root 'static_pages#home'
