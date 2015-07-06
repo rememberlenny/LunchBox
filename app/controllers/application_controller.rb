@@ -15,4 +15,6 @@ class ApplicationController < ActionController::Base
       redirect_to finish_signup_path(current_user)
     end
   end
+
+  protected
 end

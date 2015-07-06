@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :assign_meeting, :edit, :update, :destroy]
+  before_action :set_user, only: [:setup, :show, :assign_meeting, :edit, :update, :destroy]
 
   # GET /users/:id.:format
   def show
@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   end
 
   def setup
+
   end
 
   # GET /users/:id/edit

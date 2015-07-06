@@ -1,80 +1,83 @@
 <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.15/themes/css/cartodb.css" />
 
-<div class="row button-margin-bottom-0">
-  <div class="column large-12">
-    <h1 class="">Set up</h1>
-  </div>
-  <div class="large-4 column sidebar">
-    <div id="map" class="" style="height: 400px;"></div>
-    <script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
-    <script>
-      window.onload = function() {
-        cartodb.createVis('map', 'https://rememberlenny.cartodb.com/api/v2/viz/b44707de-211b-11e5-908e-0e0c41326911/viz.json');
-      }
-    </script>
-  </div>
-  <div class="large-8 column">
-    <div class="large-12 large-centered column panel">
-      <h2>1. Where can you meet?</h2>
-      <p>Pick the neighborhoods you can go to in the morning.</p>
-      <div class="row">
-        <div class="large-11 column large-centered toggle">
-          <ul class="large-block-grid-3 medium-block-grid-3 small-block-grid-2">
-            <li class="neighborhoods <% if current_user.loc_bushwick %>selected<% end %>" title="neighborhood" name="Bushwick">Bushwick</li>
-            <li class="neighborhoods <% if current_user.loc_downtown %>selected<% end %>" title="neighborhood" name="Downtown">Downtown</li>
-            <li class="neighborhoods <% if current_user.loc_harlem %>selected<% end %>" title="neighborhood" name="Harlem">Harlem</li>
-            <li class="neighborhoods <% if current_user.loc_midtown %>selected<% end %>" title="neighborhood" name="Midtown">Midtown</li>
-            <li class="neighborhoods <% if current_user.loc_queens %>selected<% end %>" title="neighborhood" name="Queens">Queens</li>
-            <li class="neighborhoods <% if current_user.loc_redhook %>selected<% end %>" title="neighborhood" name="Red Hook">Red Hook</li>
-            <li class="neighborhoods <% if current_user.loc_ues %>selected<% end %>" title="neighborhood" name="Upper East Side">Upper East Side</li>
-            <li class="neighborhoods <% if current_user.loc_uws %>selected<% end %>" title="neighborhood" name="Upper West Side">Upper West Side</li>
-            <li class="neighborhoods <% if current_user.loc_williamsburg %>selected<% end %>" title="neighborhood" name="Williamsburg">Williamsburg</li>
-          </ul>
+<%= simple_form_for(@user, url: user_registration_path(current_user)) do |f| %>
+
+  <div class="row button-margin-bottom-0">
+    <div class="column large-12">
+      <h1 class="">Set up</h1>
+    </div>
+    <div class="large-4 column sidebar">
+      <div id="map" class="" style="height: 400px;"></div>
+      <script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
+      <script>
+        window.onload = function() {
+          cartodb.createVis('map', 'https://rememberlenny.cartodb.com/api/v2/viz/b44707de-211b-11e5-908e-0e0c41326911/viz.json');
+        }
+      </script>
+    </div>
+    <div class="large-8 column">
+      <div class="large-12 large-centered column panel">
+        <h2>1. Where can you meet?</h2>
+        <p>Pick the neighborhoods you can go to in the morning.</p>
+        <div class="row">
+          <div class="large-11 column large-centered toggle">
+            <ul class="large-block-grid-3 medium-block-grid-3 small-block-grid-2">
+              <li class="neighborhoods <% if current_user.loc_bushwick %>selected<% end %>" title="neighborhood" name="Bushwick">Bushwick</li>
+              <li class="neighborhoods <% if current_user.loc_downtown %>selected<% end %>" title="neighborhood" name="Downtown">Downtown</li>
+              <li class="neighborhoods <% if current_user.loc_harlem %>selected<% end %>" title="neighborhood" name="Harlem">Harlem</li>
+              <li class="neighborhoods <% if current_user.loc_midtown %>selected<% end %>" title="neighborhood" name="Midtown">Midtown</li>
+              <li class="neighborhoods <% if current_user.loc_queens %>selected<% end %>" title="neighborhood" name="Queens">Queens</li>
+              <li class="neighborhoods <% if current_user.loc_redhook %>selected<% end %>" title="neighborhood" name="Red Hook">Red Hook</li>
+              <li class="neighborhoods <% if current_user.loc_ues %>selected<% end %>" title="neighborhood" name="Upper East Side">Upper East Side</li>
+              <li class="neighborhoods <% if current_user.loc_uws %>selected<% end %>" title="neighborhood" name="Upper West Side">Upper West Side</li>
+              <li class="neighborhoods <% if current_user.loc_williamsburg %>selected<% end %>" title="neighborhood" name="Williamsburg">Williamsburg</li>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="large-12 large-centered column panel">
-      <h2>2. What days are you free?</h2>
-      <p>Select the mornings you are open from around 7am-10am.</p>
-      <div class="row">
-        <div class="large-11 large-centered column toggle">
-          <ul class="large-block-grid-7 medium-block-grid-4 small-block-grid-3">
-            <li class="days-of-week <% if current_user.dow_mo %>selected<% end %>" title="daysOfWeek" name="Monday">Mon</li>
-            <li class="days-of-week <% if current_user.dow_tu %>selected<% end %>" title="daysOfWeek" name="Tuesday">Tues</li>
-            <li class="days-of-week <% if current_user.dow_we %>selected<% end %>" title="daysOfWeek" name="Wednesday">Wed</li>
-            <li class="days-of-week <% if current_user.dow_th %>selected<% end %>" title="daysOfWeek" name="Thursday">Thur</li>
-            <li class="days-of-week <% if current_user.dow_fr %>selected<% end %>" title="daysOfWeek" name="Friday">Fri</li>
-            <li class="days-of-week <% if current_user.dow_sa %>selected<% end %>" title="daysOfWeek" name="Saturday">Sat</li>
-            <li class="days-of-week <% if current_user.dow_su %>selected<% end %>" title="daysOfWeek" name="Sunday">Sun</li>
-          </ul>
+      <div class="large-12 large-centered column panel">
+        <h2>2. What days are you free?</h2>
+        <p>Select the mornings you are open from around 7am-10am.</p>
+        <div class="row">
+          <div class="large-11 large-centered column toggle">
+            <ul class="large-block-grid-7 medium-block-grid-4 small-block-grid-3">
+              <li class="days-of-week <% if current_user.dow_mo %>selected<% end %>" title="daysOfWeek" name="Monday">Mon</li>
+              <li class="days-of-week <% if current_user.dow_tu %>selected<% end %>" title="daysOfWeek" name="Tuesday">Tues</li>
+              <li class="days-of-week <% if current_user.dow_we %>selected<% end %>" title="daysOfWeek" name="Wednesday">Wed</li>
+              <li class="days-of-week <% if current_user.dow_th %>selected<% end %>" title="daysOfWeek" name="Thursday">Thur</li>
+              <li class="days-of-week <% if current_user.dow_fr %>selected<% end %>" title="daysOfWeek" name="Friday">Fri</li>
+              <li class="days-of-week <% if current_user.dow_sa %>selected<% end %>" title="daysOfWeek" name="Saturday">Sat</li>
+              <li class="days-of-week <% if current_user.dow_su %>selected<% end %>" title="daysOfWeek" name="Sunday">Sun</li>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="large-12 large-centered column panel reviewBox">
-      <h2>3. Review</h2>
-      <p>You selected.</p>
-      <div class="row">
-        <div class="large-11 large-centered column">
-          <div class="row">
-            <div class="large-6 column">
-              <h3>Neighborhood</h3>
-              <p class="neighborhood-report report-content"></p>
-            </div>
-            <div class="large-6 column">
-              <h3>Days</h3>
-              <p class="daysOfWeek-report report-content"></p>
+      <div class="large-12 large-centered column panel reviewBox">
+        <h2>3. Review</h2>
+        <p>You selected.</p>
+        <div class="row">
+          <div class="large-11 large-centered column">
+            <div class="row">
+              <div class="large-6 column">
+                <h3>Neighborhood</h3>
+                <p class="neighborhood-report report-content"></p>
+              </div>
+              <div class="large-6 column">
+                <h3>Days</h3>
+                <p class="daysOfWeek-report report-content"></p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="large-12 large-centered column panel submitFormWrap">
-      <div class="row">
-        <div class="large-12 column">
-          <a href="#" class="button disabled large-12 small submitFormUpdate">Submit</a>
+      <div class="large-12 large-centered column panel submitFormWrap">
+        <div class="row">
+          <div class="large-12 column">
+            <%= f.button :submit, 'Submit', class: "button disabled large-12 small submitFormUpdate" %>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-</div>
+  </div>
+<% end %>

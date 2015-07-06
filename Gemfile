@@ -11,7 +11,6 @@ gem 'sass-rails',              '5.0.0.beta1'
 gem 'uglifier',                '2.5.3'
 gem 'coffee-rails',            '4.1.0'
 gem 'jquery-rails',            '4.0.0.beta2'
-gem 'jquery-ui-rails'
 gem 'turbolinks',              '2.3.0'
 gem 'jbuilder',                '2.2.3'
 gem 'sdoc',                    '0.4.0', group: :doc
