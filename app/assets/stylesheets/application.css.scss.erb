@@ -31,9 +31,10 @@ a:hover{
 
 a.secondary.button,
 input.secondary.button{
+  border-bottom-style: solid;
   position: relative;
   overflow: hidden!important;
-  &:after{
+  &:after, &::-webkit-input-placeholder:after{
     // border-radius: 1000px;
     transition: opacity 100ms ease-in;
     opacity: 0;
@@ -50,7 +51,7 @@ input.secondary.button{
   }
   &:hover{
     background: white;
-    &:after{
+    &:after, &::-webkit-input-placeholder:after{
       opacity: .3;
     }
   }
