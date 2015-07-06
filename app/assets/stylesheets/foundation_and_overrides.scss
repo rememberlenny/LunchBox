@@ -63,7 +63,7 @@
 // Since the typical default browser font-size is 16px, that makes the calculation for grid size.
 // If you want your base font-size to be different and not have it affect the grid breakpoints,
 // set $rem-base to $base-font-size and make sure $base-font-size is a px value.
-// $base-font-size: 100%;
+$base-font-size: 110%;
 
 // The $base-font-size is 100% while $base-line-height is 150%
 // $base-line-height: 150%;
@@ -268,9 +268,9 @@ $h6-font-size: 1rem;
 // $code-padding: rem-calc(2) rem-calc(5) rem-calc(1);
 
 // We use these to style anchors
-// $anchor-text-decoration: none;
-// $anchor-text-decoration-hover: none;
-// $anchor-font-color: $primary-color;
+$anchor-text-decoration: none;
+$anchor-text-decoration-hover: none;
+$anchor-font-color: black;
 // $anchor-font-color-hover: scale-color($anchor-font-color, $lightness: -14%);
 
 // We use these to style the <hr> element
