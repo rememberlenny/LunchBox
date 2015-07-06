@@ -48,12 +48,12 @@ IntercomRails.config do |config|
   # user object, or a Proc which will be passed the current user.
   #
   config.user.custom_data = {
-    :dow_mo => current_user.dow_mo
-    :dow_tu => current_user.dow_tu
-    :dow_we => current_user.dow_we
-    :dow_th => current_user.dow_th
-    :dow_fr => current_user.dow_fr
-    :dow_sa => current_user.dow_sa
+    :dow_mo => current_user.dow_mo,
+    :dow_tu => current_user.dow_tu,
+    :dow_we => current_user.dow_we,
+    :dow_th => current_user.dow_th,
+    :dow_fr => current_user.dow_fr,
+    :dow_sa => current_user.dow_sa,
     :dow_su => current_user.dow_su
   }
 
