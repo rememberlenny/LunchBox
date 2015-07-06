@@ -21,6 +21,7 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/:id.:format
   def update
+    intercom_custom_data.user['updated_user_data'] = Time.now
     # authorize! :update, @user
     respond_to do |format|
       if @user.update(user_params)

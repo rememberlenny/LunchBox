@@ -7,7 +7,7 @@ IntercomRails.config do |config|
   # This is required to enable secure mode, you can find it on your Setup
   # guide in the "Secure Mode" step.
   #
-  # config.api_secret = "..."
+  config.api_secret = ENV["LB_INTERCOME_SECRET"]
 
   # == Intercom API Key
   # This is required for some Intercom rake tasks like importing your users;
@@ -24,17 +24,17 @@ IntercomRails.config do |config|
   # The method/variable that contains the logged in user in your controllers.
   # If it is `current_user` or `@user`, then you can ignore this
   #
-  # config.user.current = Proc.new { current_user }
+  config.user.current = Proc.new { current_user }
 
   # == Include for logged out Users
   # If set to true, include the Intercom messenger on all pages, regardless of whether
   # The user model class (set below) is present. Only available for Apps on the Acquire plan.
-  # config.include_for_logged_out_users = true
+  config.include_for_logged_out_users = true
 
   # == User model class
   # The class which defines your user model
   #
-  # config.user.model = Proc.new { User }
+  config.user.model = Proc.new { User }
 
   # == Exclude users
   # A Proc that given a user returns true if the user should be excluded
@@ -47,10 +47,15 @@ IntercomRails.config do |config|
   # You can provide either a method name which will be sent to the current
   # user object, or a Proc which will be passed the current user.
   #
-  # config.user.custom_data = {
-  #   :plan => Proc.new { |current_user| current_user.plan.name },
-  #   :favorite_color => :favorite_color
-  # }
+  config.user.custom_data = {
+    :dow_mo => current_user.dow_mo
+    :dow_tu => current_user.dow_tu
+    :dow_we => current_user.dow_we
+    :dow_th => current_user.dow_th
+    :dow_fr => current_user.dow_fr
+    :dow_sa => current_user.dow_sa
+    :dow_su => current_user.dow_su
+  }
 
   # == User -> Company association
   # A Proc that given a user returns an array of companies
