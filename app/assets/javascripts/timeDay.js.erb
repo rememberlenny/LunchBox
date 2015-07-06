@@ -120,8 +120,6 @@ LB.blastOff = function(){
 }
 
 
-$(document).on('ready', function(){
-  if($('.setup-settings').length > 0){
-    (LB.blastOff());
-  }
-});
+if($('.wrapper').hasClass('setup-settings')){
+  LB.blastOff();
+}
