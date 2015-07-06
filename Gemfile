@@ -23,6 +23,7 @@ gem 'devise_invitable'
 gem 'devise_uid'
 gem 'omniauth'
 gem 'omniauth-twitter'
+gem 'intercom-rails'
 
 group :development, :test do
   gem 'sqlite3',     '1.3.9'

@@ -127,6 +127,8 @@ GEM
     hike (1.2.3)
     i18n (0.7.0)
     inflecto (0.0.2)
+    intercom-rails (0.2.28)
+      activesupport (> 3.0)
     ipaddress (0.8.0)
     jbuilder (2.2.3)
       activesupport (>= 3.0.0, < 5)
@@ -287,6 +289,7 @@ DEPENDENCIES
   fog (= 1.23.0)
   foundation-rails
   guard-minitest (= 2.3.1)
+  intercom-rails
   jbuilder (= 2.2.3)
   jquery-rails (= 4.0.0.beta2)
   mini_backtrace (= 0.1.3)
