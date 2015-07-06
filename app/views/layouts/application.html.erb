@@ -32,11 +32,14 @@
 
     <%= yield %>
 
-    <p class="text-center">
       <% if user_signed_in? %>
-        <small><%= link_to "Logout", destroy_user_session_path, method: :delete  %></small>
+        <div class="large-4 column large-centered text-center">
+          <hr>
+          <p class="text-center">
+            <small><%= link_to "Logout", destroy_user_session_path, method: :delete  %></small>
+          </p>
+        </div>
       <% end %>
-    </p>
     <%= link_to root_path do %>
       <%= image_tag 'Breakfast_Of_Bacon_And_Eggs_clip_art_hight.png', class: 'breakfast-icon' %>
     <% end %>
