@@ -12,12 +12,17 @@
 var LB = LB || {};
 LB.savedData = {};
 
-$('.toggle li').on('click', function(e){
+$(document).on('ready', function(){
+  checkSelected();
+  updateReport();
+});
+
+$('.toggle li label').on('click', function(e){
   var $this = $(this);
-  if( $this.hasClass('selected') ){
-    $this.removeClass('selected');
+  if( $this.parent().hasClass('selected') ){
+    $this.parent().removeClass('selected');
   } else {
-    $this.addClass('selected');
+    $this.parent().addClass('selected');
   }
   checkSelected();
   updateReport();

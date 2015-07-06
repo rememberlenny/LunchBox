@@ -5,15 +5,6 @@
 
   <div class="form-inputs">
     <%= f.text_field :email, required: true, autofocus: true %>
-    <%= f.check_box :loc_bushwick %>
-    <%= f.check_box :loc_downtown %>
-    <%= f.check_box :loc_harlem %>
-    <%= f.check_box :loc_midtown %>
-    <%= f.check_box :loc_queens %>
-    <%= f.check_box :loc_redhook %>
-    <%= f.check_box :loc_ues %>
-    <%= f.check_box :loc_uws %>
-    <%= f.check_box :loc_williamsburg %>
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
     <% end %>
@@ -41,16 +32,42 @@
         <div class="row">
           <div class="large-11 column large-centered toggle">
             <ul class="large-block-grid-3 medium-block-grid-3 small-block-grid-2">
-              <li class="neighborhoods <% if current_user.loc_bushwick %>selected<% end %>" title="neighborhood" name="Bushwick">Bushwick</li>
-              <li class="neighborhoods <% if current_user.loc_downtown %>selected<% end %>" title="neighborhood" name="Downtown">Downtown</li>
-              <li class="neighborhoods <% if current_user.loc_harlem %>selected<% end %>" title="neighborhood" name="Harlem">Harlem</li>
-              <li class="neighborhoods <% if current_user.loc_midtown %>selected<% end %>" title="neighborhood" name="Midtown">Midtown</li>
-              <li class="neighborhoods <% if current_user.loc_queens %>selected<% end %>" title="neighborhood" name="Queens">Queens</li>
-              <li class="neighborhoods <% if current_user.loc_redhook %>selected<% end %>" title="neighborhood" name="Red Hook">Red Hook</li>
-              <li class="neighborhoods <% if current_user.loc_ues %>selected<% end %>" title="neighborhood" name="Upper East Side">Upper East Side</li>
-              <li class="neighborhoods <% if current_user.loc_uws %>selected<% end %>" title="neighborhood" name="Upper West Side">Upper West Side</li>
-              <li class="neighborhoods <% if current_user.loc_williamsburg %>selected<% end %>" title="neighborhood" name="Williamsburg">Williamsburg</li>
-
+              <li class="neighborhoods <% if current_user.loc_bushwick %>selected<% end %>" title="neighborhood" name="Bushwick">
+                <label for="loc_bushwick">Bushwick</label>
+                <%= f.check_box :loc_bushwick, id: 'loc_bushwick' %>
+              </li>
+              <li class="neighborhoods <% if current_user.loc_downtown %>selected<% end %>" title="neighborhood" name="Downtown">
+                <label for="loc_downtown">Downtown</label>
+                <%= f.check_box :loc_downtown, id: 'loc_downtown' %>
+              </li>
+              <li class="neighborhoods <% if current_user.loc_harlem %>selected<% end %>" title="neighborhood" name="Harlem">
+                <label for="loc_harlem">Harlem</label>
+                <%= f.check_box :loc_harlem, id: 'loc_harlem' %>
+              </li>
+              <li class="neighborhoods <% if current_user.loc_midtown %>selected<% end %>" title="neighborhood" name="Midtown">
+                <label for="loc_midtown">Midtown</label>
+                <%= f.check_box :loc_midtown, id: 'loc_midtown' %>
+              </li>
+              <li class="neighborhoods <% if current_user.loc_queens %>selected<% end %>" title="neighborhood" name="Queens">
+                <label for="loc_queens">Queens</label>
+                <%= f.check_box :loc_queens, id: 'loc_queens' %>
+              </li>
+              <li class="neighborhoods <% if current_user.loc_redhook %>selected<% end %>" title="neighborhood" name="Red Hook">
+                <label for="loc_redhook">Red Hook</label>
+                <%= f.check_box :loc_redhook, id: 'loc_redhook' %>
+              </li>
+              <li class="neighborhoods <% if current_user.loc_ues %>selected<% end %>" title="neighborhood" name="Upper East Side">
+                <label for="loc_ues">Upper East Side</label>
+                <%= f.check_box :loc_ues, id: 'loc_ues' %>
+              </li>
+              <li class="neighborhoods <% if current_user.loc_uws %>selected<% end %>" title="neighborhood" name="Upper West Side">
+                <label for="loc_uws">Upper West Side</label>
+                <%= f.check_box :loc_uws, id: 'loc_uws' %>
+              </li>
+              <li class="neighborhoods <% if current_user.loc_williamsburg %>selected<% end %>" title="neighborhood" name="Williamsburg">
+                <label for="loc_williamsburg">Williamsburg</label>
+                <%= f.check_box :loc_williamsburg, id: 'loc_williamsburg' %>
+              </li>
             </ul>
           </div>
         </div>
@@ -61,13 +78,34 @@
         <div class="row">
           <div class="large-11 large-centered column toggle">
             <ul class="large-block-grid-7 medium-block-grid-4 small-block-grid-3">
-              <li class="days-of-week <% if current_user.dow_mo %>selected<% end %>" title="daysOfWeek" name="Monday">Mon</li>
-              <li class="days-of-week <% if current_user.dow_tu %>selected<% end %>" title="daysOfWeek" name="Tuesday">Tues</li>
-              <li class="days-of-week <% if current_user.dow_we %>selected<% end %>" title="daysOfWeek" name="Wednesday">Wed</li>
-              <li class="days-of-week <% if current_user.dow_th %>selected<% end %>" title="daysOfWeek" name="Thursday">Thur</li>
-              <li class="days-of-week <% if current_user.dow_fr %>selected<% end %>" title="daysOfWeek" name="Friday">Fri</li>
-              <li class="days-of-week <% if current_user.dow_sa %>selected<% end %>" title="daysOfWeek" name="Saturday">Sat</li>
-              <li class="days-of-week <% if current_user.dow_su %>selected<% end %>" title="daysOfWeek" name="Sunday">Sun</li>
+              <li class="days-of-week <% if current_user.dow_mo %>selected<% end %>" title="daysOfWeek" name="Monday">
+                <label for="Mon">Mon</label>
+                <%= f.check_box :dow_mo, id: 'Mon' %>
+              </li>
+              <li class="days-of-week <% if current_user.dow_tu %>selected<% end %>" title="daysOfWeek" name="Tuesday">
+                <label for="Tues">Tues</label>
+                <%= f.check_box :dow_tu, id: 'Tues' %>
+              </li>
+              <li class="days-of-week <% if current_user.dow_we %>selected<% end %>" title="daysOfWeek" name="Wednesday">
+                <label for="Wed">Wed</label>
+                <%= f.check_box :dow_we, id: 'Wed' %>
+              </li>
+              <li class="days-of-week <% if current_user.dow_th %>selected<% end %>" title="daysOfWeek" name="Thursday">
+                <label for="Thur">Thur</label>
+                <%= f.check_box :dow_th, id: 'Thur' %>
+              </li>
+              <li class="days-of-week <% if current_user.dow_fr %>selected<% end %>" title="daysOfWeek" name="Friday">
+                <label for="Fri">Fri</label>
+                <%= f.check_box :dow_fr, id: 'Fri' %>
+              </li>
+              <li class="days-of-week <% if current_user.dow_sa %>selected<% end %>" title="daysOfWeek" name="Saturday">
+                <label for="Sat">Sat</label>
+                <%= f.check_box :dow_sa, id: 'Sat' %>
+              </li>
+              <li class="days-of-week <% if current_user.dow_su %>selected<% end %>" title="daysOfWeek" name="Sunday">
+                <label for="Sun">Sun</label>
+                <%= f.check_box :dow_su, id: 'Sun' %>
+              </li>
             </ul>
           </div>
         </div>
