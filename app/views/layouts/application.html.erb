@@ -15,10 +15,10 @@
     <div class="row">
       <div class="large-12 column text-center top-of-bar">
         <% if notice %>
-          <p class="alert alert-success"><%= notice %></p>
+          <p class="alert alert-success"><i><%= notice %></i></p>
         <% end %>
         <% if alert %>
-          <p class="alert alert-danger"><%= alert %></p>
+          <p class="alert alert-danger"><i><%= alert %><i></p>
         <% end %>
 
         <% if user_signed_in? %>

@@ -19,3 +19,6 @@
 
 $(function(){ $(document).foundation(); });
 
+setTimeout(function(){
+  $('.alert').addClass('slide-right');
+}, 2500);
