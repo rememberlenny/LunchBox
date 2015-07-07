@@ -1,7 +1,7 @@
 <div class="large-6 column large-centered">
 
   <div id="add-email" class="container wrapper setup-settings">
-    <h1>Get going!</h1>
+    <h1 class="text-center">Setup your account</h1>
     <%= form_for(current_user, :as => 'user', :url => finish_signup_path(current_user), :html => { role: 'form'}) do |f| %>
       <% if @show_errors && current_user.errors.any? %>
         <div id="error_explanation" class="alert-box info">
