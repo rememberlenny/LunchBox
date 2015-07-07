@@ -45,6 +45,7 @@ class UsersController < ApplicationController
   end
 
   def deactivate_user
+    intercom_custom_data.user['deactivated_user'] = Time.now
     user = User.find(current_user.id)
     places = ['loc_bushwick', 'loc_downtown', 'loc_harlem', 'loc_midtown', 'loc_queens', 'loc_redhook', 'loc_ues', 'loc_uws', 'loc_williamsburg']
     times = ['dow_mo', 'dow_tu', 'dow_we', 'dow_th', 'dow_fr', 'dow_sa', 'dow_su']
@@ -61,7 +62,7 @@ class UsersController < ApplicationController
   # GET/PATCH /users/:id/finish_signup
   def finish_signup
     intercom_custom_data.user['finished_signup'] = Time.now
-    intercom_custom_data.user.twitter = current_user.username
+    intercom_custom_data.user['twitter'] = current_user.username
 
     @user = current_user
 
@@ -79,6 +80,7 @@ class UsersController < ApplicationController
 
   # DELETE /users/:id.:format
   def destroy
+    intercom_custom_data.user['destroyed_app_at'] = Time.now
     # authorize! :delete, @user
     @user.destroy
     respond_to do |format|

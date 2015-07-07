@@ -48,6 +48,13 @@ IntercomRails.config do |config|
   # user object, or a Proc which will be passed the current user.
   #
 
+  config.user.custom_data = {
+    "twitter" => Proc.new { |user| user.username },
+    "plan" => Proc.new { |user| user.plan.name },
+    "friends" => Proc.new { |user| user.friends.count }
+  }
+
+
   # == User -> Company association
   # A Proc that given a user returns an array of companies
   # that the user belongs to.
