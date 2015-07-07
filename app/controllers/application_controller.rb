@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   before_filter :ensure_signup_complete, only: [:new, :create, :update, :destroy]
 
   def check_user_status
-    current_user.active_status = true
+
   end
 
   def ensure_signup_complete
