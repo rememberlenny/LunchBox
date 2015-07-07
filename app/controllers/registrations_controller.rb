@@ -27,9 +27,6 @@ class RegistrationsController < Devise::RegistrationsController
   protected
 
   def update_resource(resource, params)
-    u = current_user
-    intercom_custom_data.user['meeting_locations'] = [u.loc_bushwick, u.loc_downtown, u.loc_harlem, u.loc_midtown, u.loc_queens, u.loc_redhook, u.loc_ues, u.loc_uws, u.loc_williamsburg]
-    intercom_custom_data.user['meeting_days'] = [ u.dow_mo, u.dow_tu, u.dow_we, u.dow_th, u.dow_fr, u.dow_sa, u.dow_su ]
     resource.update_without_password(params)
   end
 end

@@ -29,6 +29,9 @@ class UsersController < ApplicationController
     # authorize! :update, @user
     respond_to do |format|
       if @user.update(user_params)
+        u = current_user
+        intercom_custom_data.user['meeting_locations'] = [u.loc_bushwick, u.loc_downtown, u.loc_harlem, u.loc_midtown, u.loc_queens, u.loc_redhook, u.loc_ues, u.loc_uws, u.loc_williamsburg]
+        intercom_custom_data.user['meeting_days'] = [ u.dow_mo, u.dow_tu, u.dow_we, u.dow_th, u.dow_fr, u.dow_sa, u.dow_su ]
         sign_in(@user == current_user ? @user : current_user, :bypass => true)
         format.html { redirect_to @user, notice: 'Your profile was successfully updated.' }
         format.json { head :no_content }
