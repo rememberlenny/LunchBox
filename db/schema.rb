@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150707143732) do
+ActiveRecord::Schema.define(version: 20150707154022) do
 
   create_table "identities", force: :cascade do |t|
     t.integer  "user_id"
@@ -35,12 +35,12 @@ ActiveRecord::Schema.define(version: 20150707143732) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "",      null: false
-    t.string   "encrypted_password",     default: ""
+    t.string   "email",                   default: "",      null: false
+    t.string   "encrypted_password",      default: ""
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,       null: false
+    t.integer  "sign_in_count",           default: 0,       null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -55,31 +55,35 @@ ActiveRecord::Schema.define(version: 20150707143732) do
     t.integer  "invitation_limit"
     t.integer  "invited_by_id"
     t.string   "invited_by_type"
-    t.integer  "invitations_count",      default: 0
+    t.integer  "invitations_count",       default: 0
     t.string   "uid"
     t.string   "avatar"
     t.integer  "longitude"
     t.integer  "latitude"
     t.string   "address"
     t.string   "username"
-    t.boolean  "active_status",          default: false
-    t.string   "email_frequency",        default: "daily"
-    t.boolean  "loc_bushwick",           default: false
-    t.boolean  "loc_downtown",           default: false
-    t.boolean  "loc_harlem",             default: false
-    t.boolean  "loc_midtown",            default: false
-    t.boolean  "loc_queens",             default: false
-    t.boolean  "loc_redhook",            default: false
-    t.boolean  "loc_ues",                default: false
-    t.boolean  "loc_uws",                default: false
-    t.boolean  "loc_williamsburg",       default: false
-    t.boolean  "dow_mo",                 default: false
-    t.boolean  "dow_tu",                 default: false
-    t.boolean  "dow_we",                 default: false
-    t.boolean  "dow_th",                 default: false
-    t.boolean  "dow_fr",                 default: false
-    t.boolean  "dow_sa",                 default: false
-    t.boolean  "dow_su",                 default: false
+    t.boolean  "active_status",           default: false
+    t.string   "email_frequency",         default: "daily"
+    t.boolean  "loc_bushwick",            default: false
+    t.boolean  "loc_downtown",            default: false
+    t.boolean  "loc_harlem",              default: false
+    t.boolean  "loc_midtown",             default: false
+    t.boolean  "loc_queens",              default: false
+    t.boolean  "loc_redhook",             default: false
+    t.boolean  "loc_ues",                 default: false
+    t.boolean  "loc_uws",                 default: false
+    t.boolean  "loc_williamsburg",        default: false
+    t.boolean  "dow_mo",                  default: false
+    t.boolean  "dow_tu",                  default: false
+    t.boolean  "dow_we",                  default: false
+    t.boolean  "dow_th",                  default: false
+    t.boolean  "dow_fr",                  default: false
+    t.boolean  "dow_sa",                  default: false
+    t.boolean  "dow_su",                  default: false
+    t.integer  "twitter_followers_count", default: 0
+    t.integer  "twitter_friends_count",   default: 0
+    t.string   "twitter_access_token"
+    t.string   "description",             default: ""
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
