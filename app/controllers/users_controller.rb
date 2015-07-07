@@ -30,8 +30,6 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.update(user_params)
         u = current_user
-        intercom_custom_data.user['meeting_locations'] = [u.loc_bushwick, u.loc_downtown, u.loc_harlem, u.loc_midtown, u.loc_queens, u.loc_redhook, u.loc_ues, u.loc_uws, u.loc_williamsburg].select{|place| place == true }.size
-        intercom_custom_data.user['meeting_days'] = [ u.dow_mo, u.dow_tu, u.dow_we, u.dow_th, u.dow_fr, u.dow_sa, u.dow_su ].select{|day| day == true }.size
         sign_in(@user == current_user ? @user : current_user, :bypass => true)
         format.html { redirect_to @user, notice: 'Your profile was successfully updated.' }
         format.json { head :no_content }
@@ -64,10 +62,13 @@ class UsersController < ApplicationController
 
   # GET/PATCH /users/:id/finish_signup
   def finish_signup
+    u = current_user
+    @user = u
     intercom_custom_data.user['finished_signup'] = Time.now
-    intercom_custom_data.user['twitter'] = current_user.username
+    intercom_custom_data.user['twitter'] = u.username
+    intercom_custom_data.user['count_meeting_locations'] = [u.loc_bushwick, u.loc_downtown, u.loc_harlem, u.loc_midtown, u.loc_queens, u.loc_redhook, u.loc_ues, u.loc_uws, u.loc_williamsburg].select{|place| place == true }.size
+    intercom_custom_data.user['count_meeting_days'] = [ u.dow_mo, u.dow_tu, u.dow_we, u.dow_th, u.dow_fr, u.dow_sa, u.dow_su ].select{|day| day == true }.size
 
-    @user = current_user
 
     # authorize! :update, @user
     if request.patch? && params[:user] #&& params[:user][:email]
