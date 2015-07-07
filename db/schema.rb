@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150707132836) do
+ActiveRecord::Schema.define(version: 20150707143732) do
 
   create_table "identities", force: :cascade do |t|
     t.integer  "user_id"
@@ -61,25 +61,25 @@ ActiveRecord::Schema.define(version: 20150707132836) do
     t.integer  "longitude"
     t.integer  "latitude"
     t.string   "address"
-    t.boolean  "loc_bushwick"
-    t.boolean  "loc_downtown"
-    t.boolean  "loc_harlem"
-    t.boolean  "loc_midtown"
-    t.boolean  "loc_queens"
-    t.boolean  "loc_redhook"
-    t.boolean  "loc_ues"
-    t.boolean  "loc_uws"
-    t.boolean  "loc_williamsburg"
-    t.boolean  "dow_mo"
-    t.boolean  "dow_tu"
-    t.boolean  "dow_we"
-    t.boolean  "dow_th"
-    t.boolean  "dow_fr"
-    t.boolean  "dow_sa"
-    t.boolean  "dow_su"
     t.string   "username"
     t.boolean  "active_status",          default: false
     t.string   "email_frequency",        default: "daily"
+    t.boolean  "loc_bushwick",           default: false
+    t.boolean  "loc_downtown",           default: false
+    t.boolean  "loc_harlem",             default: false
+    t.boolean  "loc_midtown",            default: false
+    t.boolean  "loc_queens",             default: false
+    t.boolean  "loc_redhook",            default: false
+    t.boolean  "loc_ues",                default: false
+    t.boolean  "loc_uws",                default: false
+    t.boolean  "loc_williamsburg",       default: false
+    t.boolean  "dow_mo",                 default: false
+    t.boolean  "dow_tu",                 default: false
+    t.boolean  "dow_we",                 default: false
+    t.boolean  "dow_th",                 default: false
+    t.boolean  "dow_fr",                 default: false
+    t.boolean  "dow_sa",                 default: false
+    t.boolean  "dow_su",                 default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
