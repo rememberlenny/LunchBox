@@ -3,118 +3,126 @@
 <%= form_for(@user, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="row wrapper button-margin-bottom-0 setup-settings">
-    <div class="large-6 column large-centered">
-      <div class="large-12 large-centered column panel">
-        <h2>1. Where can you meet?</h2>
-        <p>Pick the neighborhoods you can go to in the morning.</p>
-        <div class="row">
-          <div class="large-11 column large-centered toggle">
-            <ul class="large-block-grid-3 medium-block-grid-3 small-block-grid-2">
-              <li class="neighborhoods <% if current_user.loc_bushwick %>selected<% end %>" title="neighborhood" name="Bushwick">
-                <label for="loc_bushwick">Bushwick</label>
-                <%= f.check_box :loc_bushwick, id: 'loc_bushwick' %>
-              </li>
-              <li class="neighborhoods <% if current_user.loc_downtown %>selected<% end %>" title="neighborhood" name="Downtown">
-                <label for="loc_downtown">Downtown</label>
-                <%= f.check_box :loc_downtown, id: 'loc_downtown' %>
-              </li>
-              <li class="neighborhoods <% if current_user.loc_harlem %>selected<% end %>" title="neighborhood" name="Harlem">
-                <label for="loc_harlem">Harlem</label>
-                <%= f.check_box :loc_harlem, id: 'loc_harlem' %>
-              </li>
-              <li class="neighborhoods <% if current_user.loc_midtown %>selected<% end %>" title="neighborhood" name="Midtown">
-                <label for="loc_midtown">Midtown</label>
-                <%= f.check_box :loc_midtown, id: 'loc_midtown' %>
-              </li>
-              <li class="neighborhoods <% if current_user.loc_queens %>selected<% end %>" title="neighborhood" name="Queens">
-                <label for="loc_queens">Queens</label>
-                <%= f.check_box :loc_queens, id: 'loc_queens' %>
-              </li>
-              <li class="neighborhoods <% if current_user.loc_redhook %>selected<% end %>" title="neighborhood" name="Red Hook">
-                <label for="loc_redhook">Red Hook</label>
-                <%= f.check_box :loc_redhook, id: 'loc_redhook' %>
-              </li>
-              <li class="neighborhoods <% if current_user.loc_ues %>selected<% end %>" title="neighborhood" name="Upper East Side">
-                <label for="loc_ues">Upper East Side</label>
-                <%= f.check_box :loc_ues, id: 'loc_ues' %>
-              </li>
-              <li class="neighborhoods <% if current_user.loc_uws %>selected<% end %>" title="neighborhood" name="Upper West Side">
-                <label for="loc_uws">Upper West Side</label>
-                <%= f.check_box :loc_uws, id: 'loc_uws' %>
-              </li>
-              <li class="neighborhoods <% if current_user.loc_williamsburg %>selected<% end %>" title="neighborhood" name="Williamsburg">
-                <label for="loc_williamsburg">Williamsburg</label>
-                <%= f.check_box :loc_williamsburg, id: 'loc_williamsburg' %>
-              </li>
-            </ul>
+  <% if params['cancel'] == 'true' %>
+    <div class="large-6 column large-centered text-center">
+      <div class="large-8 large-centered column panel primary">
+        <h3>Cancel my account</h3>
+        <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+      </div>
+    </div>
+  <% else %>
+    <div class="row wrapper button-margin-bottom-0 setup-settings">
+      <div class="large-6 column large-centered">
+        <div class="large-12 large-centered column panel">
+          <h2>1. Where can you meet?</h2>
+          <p>Pick the neighborhoods you can go to in the morning.</p>
+          <div class="row">
+            <div class="large-11 column large-centered toggle">
+              <ul class="large-block-grid-3 medium-block-grid-3 small-block-grid-2">
+                <li class="neighborhoods <% if current_user.loc_bushwick %>selected<% end %>" title="neighborhood" name="Bushwick">
+                  <label for="loc_bushwick">Bushwick</label>
+                  <%= f.check_box :loc_bushwick, id: 'loc_bushwick' %>
+                </li>
+                <li class="neighborhoods <% if current_user.loc_downtown %>selected<% end %>" title="neighborhood" name="Downtown">
+                  <label for="loc_downtown">Downtown</label>
+                  <%= f.check_box :loc_downtown, id: 'loc_downtown' %>
+                </li>
+                <li class="neighborhoods <% if current_user.loc_harlem %>selected<% end %>" title="neighborhood" name="Harlem">
+                  <label for="loc_harlem">Harlem</label>
+                  <%= f.check_box :loc_harlem, id: 'loc_harlem' %>
+                </li>
+                <li class="neighborhoods <% if current_user.loc_midtown %>selected<% end %>" title="neighborhood" name="Midtown">
+                  <label for="loc_midtown">Midtown</label>
+                  <%= f.check_box :loc_midtown, id: 'loc_midtown' %>
+                </li>
+                <li class="neighborhoods <% if current_user.loc_queens %>selected<% end %>" title="neighborhood" name="Queens">
+                  <label for="loc_queens">Queens</label>
+                  <%= f.check_box :loc_queens, id: 'loc_queens' %>
+                </li>
+                <li class="neighborhoods <% if current_user.loc_redhook %>selected<% end %>" title="neighborhood" name="Red Hook">
+                  <label for="loc_redhook">Red Hook</label>
+                  <%= f.check_box :loc_redhook, id: 'loc_redhook' %>
+                </li>
+                <li class="neighborhoods <% if current_user.loc_ues %>selected<% end %>" title="neighborhood" name="Upper East Side">
+                  <label for="loc_ues">Upper East Side</label>
+                  <%= f.check_box :loc_ues, id: 'loc_ues' %>
+                </li>
+                <li class="neighborhoods <% if current_user.loc_uws %>selected<% end %>" title="neighborhood" name="Upper West Side">
+                  <label for="loc_uws">Upper West Side</label>
+                  <%= f.check_box :loc_uws, id: 'loc_uws' %>
+                </li>
+                <li class="neighborhoods <% if current_user.loc_williamsburg %>selected<% end %>" title="neighborhood" name="Williamsburg">
+                  <label for="loc_williamsburg">Williamsburg</label>
+                  <%= f.check_box :loc_williamsburg, id: 'loc_williamsburg' %>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="large-12 large-centered column panel">
-        <h2>2. What days are you free?</h2>
-        <p>Select the mornings you are open from around 7am-10am.</p>
-        <div class="row">
-          <div class="large-11 large-centered column toggle">
-            <ul class="large-block-grid-7 medium-block-grid-4 small-block-grid-3">
-              <li class="days-of-week <% if current_user.dow_mo %>selected<% end %>" title="daysOfWeek" name="Monday">
-                <label for="Mon">Mon</label>
-                <%= f.check_box :dow_mo, id: 'Mon' %>
-              </li>
-              <li class="days-of-week <% if current_user.dow_tu %>selected<% end %>" title="daysOfWeek" name="Tuesday">
-                <label for="Tues">Tues</label>
-                <%= f.check_box :dow_tu, id: 'Tues' %>
-              </li>
-              <li class="days-of-week <% if current_user.dow_we %>selected<% end %>" title="daysOfWeek" name="Wednesday">
-                <label for="Wed">Wed</label>
-                <%= f.check_box :dow_we, id: 'Wed' %>
-              </li>
-              <li class="days-of-week <% if current_user.dow_th %>selected<% end %>" title="daysOfWeek" name="Thursday">
-                <label for="Thur">Thur</label>
-                <%= f.check_box :dow_th, id: 'Thur' %>
-              </li>
-              <li class="days-of-week <% if current_user.dow_fr %>selected<% end %>" title="daysOfWeek" name="Friday">
-                <label for="Fri">Fri</label>
-                <%= f.check_box :dow_fr, id: 'Fri' %>
-              </li>
-              <li class="days-of-week <% if current_user.dow_sa %>selected<% end %>" title="daysOfWeek" name="Saturday">
-                <label for="Sat">Sat</label>
-                <%= f.check_box :dow_sa, id: 'Sat' %>
-              </li>
-              <li class="days-of-week <% if current_user.dow_su %>selected<% end %>" title="daysOfWeek" name="Sunday">
-                <label for="Sun">Sun</label>
-                <%= f.check_box :dow_su, id: 'Sun' %>
-              </li>
-            </ul>
+        <div class="large-12 large-centered column panel">
+          <h2>2. What days are you free?</h2>
+          <p>Select the mornings you are open from around 7am-10am.</p>
+          <div class="row">
+            <div class="large-11 large-centered column toggle">
+              <ul class="large-block-grid-7 medium-block-grid-4 small-block-grid-3">
+                <li class="days-of-week <% if current_user.dow_mo %>selected<% end %>" title="daysOfWeek" name="Monday">
+                  <label for="Mon">Mon</label>
+                  <%= f.check_box :dow_mo, id: 'Mon' %>
+                </li>
+                <li class="days-of-week <% if current_user.dow_tu %>selected<% end %>" title="daysOfWeek" name="Tuesday">
+                  <label for="Tues">Tues</label>
+                  <%= f.check_box :dow_tu, id: 'Tues' %>
+                </li>
+                <li class="days-of-week <% if current_user.dow_we %>selected<% end %>" title="daysOfWeek" name="Wednesday">
+                  <label for="Wed">Wed</label>
+                  <%= f.check_box :dow_we, id: 'Wed' %>
+                </li>
+                <li class="days-of-week <% if current_user.dow_th %>selected<% end %>" title="daysOfWeek" name="Thursday">
+                  <label for="Thur">Thur</label>
+                  <%= f.check_box :dow_th, id: 'Thur' %>
+                </li>
+                <li class="days-of-week <% if current_user.dow_fr %>selected<% end %>" title="daysOfWeek" name="Friday">
+                  <label for="Fri">Fri</label>
+                  <%= f.check_box :dow_fr, id: 'Fri' %>
+                </li>
+                <li class="days-of-week <% if current_user.dow_sa %>selected<% end %>" title="daysOfWeek" name="Saturday">
+                  <label for="Sat">Sat</label>
+                  <%= f.check_box :dow_sa, id: 'Sat' %>
+                </li>
+                <li class="days-of-week <% if current_user.dow_su %>selected<% end %>" title="daysOfWeek" name="Sunday">
+                  <label for="Sun">Sun</label>
+                  <%= f.check_box :dow_su, id: 'Sun' %>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="large-12 large-centered column panel reviewBox">
-        <h2>3. Review</h2>
-        <p>You selected.</p>
-        <div class="row">
-          <div class="large-11 large-centered column">
-            <div class="row">
-              <div class="large-6 column">
-                <h3>Neighborhood</h3>
-                <p class="neighborhood-report report-content"></p>
-              </div>
-              <div class="large-6 column">
-                <h3>Days</h3>
-                <p class="daysOfWeek-report report-content"></p>
+        <div class="large-12 large-centered column panel reviewBox">
+          <h2>3. Review</h2>
+          <p>You selected.</p>
+          <div class="row">
+            <div class="large-11 large-centered column">
+              <div class="row">
+                <div class="large-6 column">
+                  <h3>Neighborhood</h3>
+                  <p class="neighborhood-report report-content"></p>
+                </div>
+                <div class="large-6 column">
+                  <h3>Days</h3>
+                  <p class="daysOfWeek-report report-content"></p>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="large-12 large-centered column panel submitFormWrap">
-        <div class="row">
-          <div class="large-12 column">
-            <%= f.submit 'Submit', class: "button disabled success large-12 small submitFormUpdate" %>
+        <div class="large-12 large-centered column panel submitFormWrap">
+          <div class="row">
+            <div class="large-12 column">
+              <%= f.submit 'Submit', class: "button disabled success large-12 small submitFormUpdate" %>
+            </div>
           </div>
         </div>
       </div>
     </div>
-
-  </div>
+  <% end %>
 <% end %>

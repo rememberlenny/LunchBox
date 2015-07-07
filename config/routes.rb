@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   root 'static_pages#home'
 
   # User related
-  match '/users/cancel' => 'users#account_cancel', via: [:get, :patch]
   devise_for :users, :controllers => {
     omniauth_callbacks: 'omniauth_callbacks',
     registrations: 'registrations'
