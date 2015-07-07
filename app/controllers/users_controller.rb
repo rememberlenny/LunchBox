@@ -10,6 +10,10 @@ class UsersController < ApplicationController
 
   end
 
+  def account_cancel
+
+  end
+
   # GET /users/:id/edit
   def edit
     # authorize! :update, @user
