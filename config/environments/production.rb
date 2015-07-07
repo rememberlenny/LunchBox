@@ -7,13 +7,10 @@ Rails.application.configure do
   config.action_mailer.perform_deliveries = true
   config.action_mailer.default_url_options = { host: config.app_domain }
   config.action_mailer.smtp_settings = {
-    address: 'smtp.gmail.com',
+    address: 'smtp.mandrillapp.com',
     port: '587',
-    enable_starttls_auto: true,
-    user_name: ENV["LB_GMAIL_UR"],
-    password: ENV["LB_GMAIL_PW"],
-    authentication: :plain,
-    domain: 'gmail.com'
+    user_name: ENV["LB_MANDRILL_US"],
+    password: ENV["LB_MANDRILL"],
   }
   # Code is not reloaded between requests.
   config.cache_classes = true
