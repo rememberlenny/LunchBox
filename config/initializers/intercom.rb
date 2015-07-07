@@ -47,6 +47,7 @@ IntercomRails.config do |config|
   # You can provide either a method name which will be sent to the current
   # user object, or a Proc which will be passed the current user.
   #
+  config.user.twitter_username = Proc.new { |user| user.username }
 
   # == User -> Company association
   # A Proc that given a user returns an array of companies

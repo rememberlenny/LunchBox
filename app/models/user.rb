@@ -44,7 +44,6 @@ class User < ActiveRecord::Base
           email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}.com",
           password: Devise.friendly_token[0,20]
         )
-        intercom_custom_data.user['twitter_username'] = user.username
         user.save!
       end
     end
