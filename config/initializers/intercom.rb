@@ -49,9 +49,7 @@ IntercomRails.config do |config|
   #
 
   config.user.custom_data = {
-    "twitter" => Proc.new { |user| user.username },
-    "plan" => Proc.new { |user| user.plan.name },
-    "friends" => Proc.new { |user| user.friends.count }
+    "twitter" => Proc.new { |user| user.username }
   }
 
 
