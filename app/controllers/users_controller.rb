@@ -103,8 +103,9 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      accessible = [ :name, :email, :time_of_day, :days_of_week ] # extend with your own params
-      accessible << [ :address, :longitude, :latitude ]
+      accessible = [ :name, :email ] # extend with your own params
+      accessible << [ :address, :longitude, :latitude, :avatar ]
+      accessible << [ :description, :twitter_followers_count, :twitter_friends_count, :twitter_access_token ]
       accessible << [ :loc_bushwick, :loc_downtown, :loc_harlem ]
       accessible << [ :loc_midtown, :loc_queens, :loc_redhook ]
       accessible << [ :loc_ues, :loc_uws, :loc_williamsburg ]

@@ -42,7 +42,11 @@ class User < ActiveRecord::Base
           avatar: auth.info.image,
           username: auth.info.nickname || auth.uid,
           email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}.com",
-          password: Devise.friendly_token[0,20]
+          password: Devise.friendly_token[0,20],
+          description: auth.extra.raw_info.description,
+          twitter_followers_count: auth.extra.raw_info.followers_count,
+          twitter_friends_count: auth.extra.raw_info.friends_count,
+          twitter_access_token: auth.access_token,
         )
         user.save!
       end

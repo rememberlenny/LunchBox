@@ -19,7 +19,8 @@ class RegistrationsController < Devise::RegistrationsController
       :dow_th,
       :dow_fr,
       :dow_sa,
-      :dow_su
+      :dow_su,
+      :avatar
     ]
     devise_parameter_sanitizer.for(:account_update).push(registration_params)
   end
