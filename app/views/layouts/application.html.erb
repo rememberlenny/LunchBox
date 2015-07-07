@@ -23,7 +23,6 @@
 
         <% if user_signed_in? && !current_user.nil? && current_user.active_status == true %>
            <strong><%= link_to '@'+ current_user.username.to_s, root_path %></strong>
-          <br><%= link_to 'Update Profile', edit_user_registration_path, :class => 'navbar-link' %>
         <% elsif !current_user.nil? && current_user.active_status == false %>
            Welcome <strong>@<%= current_user.username.to_s %></strong>!
         <% end %>
@@ -37,6 +36,7 @@
         <div class="large-4 column large-centered text-center">
           <hr>
           <p class="text-center">
+            <small><%= link_to 'Settings', edit_user_registration_path, :class => 'navbar-link' %></small> <small>|</small>
             <small><%= link_to "Logout", destroy_user_session_path, method: :delete  %></small>
           </p>
         </div>

@@ -1,7 +1,10 @@
  <div class="row">
-    <div class="large-6 column">
+    <div class="large-6 column text-center report-container">
       <% if current_user_locations_active %>
-      <h3 class="text-center">Neighborhood</h3>
+      <div class="row header-inline text-center">
+        <h3 class="text-center large-12">Neighborhood</h3>
+        <small><%= link_to 'Change', edit_user_registration_path %></small>
+      </div>
       <p class="neighborhood-report report-content text-center">
         <% if current_user.loc_bushwick %>
           <span class="report-el" name="Upper East Side">Bushwick</span>
@@ -33,9 +36,12 @@
       </p>
       <% end %>
     </div>
-    <div class="large-6 column">
+    <div class="large-6 column text-center report-container">
       <% if current_user_days_active %>
-      <h3 class="text-center">Days</h3>
+      <div class="row header-inline text-center">
+        <h3 class="text-center">Days</h3>
+        <small><%= link_to 'Change', edit_user_registration_path %></small>
+      </div>
       <p class="daysOfWeek-report report-content text-center">
         <% if current_user.dow_mo %>
           <span class="report-el" name="Monday">Monday</span>
