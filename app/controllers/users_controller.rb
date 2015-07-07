@@ -48,7 +48,7 @@ class UsersController < ApplicationController
   def finish_signup
     intercom_custom_data.user['finished_signup'] = Time.now
     @user = current_user
-    current_user.active_status = true
+
     # authorize! :update, @user
     if request.patch? && params[:user] #&& params[:user][:email]
       if @user.update(user_params)
