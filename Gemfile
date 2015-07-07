@@ -24,6 +24,7 @@ gem 'devise_uid'
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'intercom-rails'
+gem 'rollbar', '~> 1.5.3'
 gem 'sendwithus_ruby_action_mailer'
 
 group :development, :test do
