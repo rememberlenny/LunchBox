@@ -1,7 +1,7 @@
  <div class="row">
     <div class="large-6 column">
       <% if !current_user.loc_bushwick.nil? %>
-      <h3>Neighborhood</h3>
+      <h3 class="text-center">Neighborhood</h3>
       <p class="neighborhood-report report-content">
         <% if current_user.loc_bushwick %>
           <span class="report-el" name="Upper East Side">Bushwick</span>
@@ -35,7 +35,7 @@
     </div>
     <div class="large-6 column">
       <% if !current_user.dow_mo.nil? %>
-      <h3>Days</h3>
+      <h3 class="text-center">Days</h3>
       <p class="daysOfWeek-report report-content">
         <% if current_user.dow_mo %>
           <span class="report-el" name="Monday">Monday</span>
