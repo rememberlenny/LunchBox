@@ -20,7 +20,11 @@ class RegistrationsController < Devise::RegistrationsController
       :dow_fr,
       :dow_sa,
       :dow_su,
-      :avatar
+      :avatar,
+      :description,
+      :twitter_followers_count,
+      :twitter_friends_count,
+      :twitter_access_token
     ]
     devise_parameter_sanitizer.for(:account_update).push(registration_params)
   end
