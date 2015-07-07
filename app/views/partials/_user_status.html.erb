@@ -1,6 +1,6 @@
 <div class="row text-center">
   <div class="large-6 large-centered column">
-    You are currently active. <small><a href="">Change</a></small>
+    You are currently <% if current_user.active_status %>active<% else %>inactive<%end%>. <small><a href="">Change</a></small>
     <hr>
   </div>
 </div>
