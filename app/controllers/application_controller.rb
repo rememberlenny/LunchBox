@@ -7,14 +7,16 @@ class ApplicationController < ActionController::Base
   before_filter :ensure_signup_complete, only: [:new, :create, :update, :destroy]
 
   def check_user_status
-    places = [current_user.loc_bushwick, current_user.loc_downtown, current_user.loc_harlem, current_user.loc_midtown, current_user.loc_queens, current_user.loc_redhook, current_user.loc_ues, current_user.loc_uws, current_user.loc_williamsburg]
-    times = [current_user.dow_mo, current_user.dow_tu, current_user.dow_we, current_user.dow_th, current_user.dow_fr, current_user.dow_sa, current_user.dow_su]
-    places_set = places.include? true
-    times_set = times.include? true
-    if( places_set && times_set )
-      current_user.active_status = true
-    else
-      current_user.active_status = false
+    if !current_user.nil?
+      places = [current_user.loc_bushwick, current_user.loc_downtown, current_user.loc_harlem, current_user.loc_midtown, current_user.loc_queens, current_user.loc_redhook, current_user.loc_ues, current_user.loc_uws, current_user.loc_williamsburg]
+      times = [current_user.dow_mo, current_user.dow_tu, current_user.dow_we, current_user.dow_th, current_user.dow_fr, current_user.dow_sa, current_user.dow_su]
+      places_set = places.include? true
+      times_set = times.include? true
+      if( places_set && times_set )
+        current_user.active_status = true
+      else
+        current_user.active_status = false
+      end
     end
   end
 
