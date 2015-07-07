@@ -1,20 +1,13 @@
 Rails.application.routes.draw do
-  get 'location/update'
-
-  resources :meetings
-
   devise_for :users, :controllers => {
     omniauth_callbacks: 'omniauth_callbacks',
     registrations: 'registrations'
   }
   match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
-
   get 'about'   => 'static_pages#about'
   get 'contact' => 'static_pages#contact'
-  get 'setup' => 'users#setup'
-  get 'schedule' => 'users#assign_meeting'
+  get 'setup'   => 'users#setup'
   root 'static_pages#home'
-  patch '/location/update' => 'static_pages#home'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
