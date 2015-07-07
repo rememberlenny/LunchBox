@@ -1,6 +1,11 @@
 <div class="row text-center">
   <div class="large-6 large-centered column">
-    You are currently <% if current_user.active_status %>active<% else %>inactive<%end%>. <small><a href="">Change</a></small>
+    You are currently <% if current_user.active_status %>active<% else %>inactive<%end%>. <small><%= link_to 'Change', edit_user_registration_path %></small>
+    <% if current_user.active_status == false %>
+    <br/>
+    <br/>
+    <%= link_to 'Activate', edit_user_registration_path, class: 'button secondary' %>
+    <% end %>
     <hr>
   </div>
 </div>
