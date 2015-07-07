@@ -61,6 +61,8 @@ class UsersController < ApplicationController
   # GET/PATCH /users/:id/finish_signup
   def finish_signup
     intercom_custom_data.user['finished_signup'] = Time.now
+    intercom_custom_data.user.twitter = current_user.username
+
     @user = current_user
 
     # authorize! :update, @user
