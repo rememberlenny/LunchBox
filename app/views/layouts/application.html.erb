@@ -21,9 +21,8 @@
           <p class="alert alert-danger"><i><%= alert %><i></p>
         <% end %>
 
-        <% if user_signed_in? %>
+        <% if user_signed_in? && current_user.active_status %>
            <strong><%= link_to '@'+ current_user.username.to_s, root_path %></strong>
-           |
           <%= link_to 'Update Profile', edit_user_registration_path, :class => 'navbar-link' %>
         <% end %>
 
@@ -32,7 +31,7 @@
 
     <%= yield %>
 
-      <% if user_signed_in? %>
+      <% if user_signed_in? && current_user.active_status %>
         <div class="large-4 column large-centered text-center">
           <hr>
           <p class="text-center">
@@ -40,7 +39,11 @@
           </p>
         </div>
       <% end %>
-    <%= link_to root_path do %>
+    <% if current_user.active_status %>
+      <%= link_to root_path do %>
+        <%= image_tag 'Breakfast_Of_Bacon_And_Eggs_clip_art_hight.png', class: 'breakfast-icon' %>
+      <% end %>
+    <% else %>
       <%= image_tag 'Breakfast_Of_Bacon_And_Eggs_clip_art_hight.png', class: 'breakfast-icon' %>
     <% end %>
 
