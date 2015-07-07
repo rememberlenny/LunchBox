@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
+  match '/users/cancel' => 'users#account_cancel', via: [:get, :patch]
   devise_for :users, :controllers => {
     omniauth_callbacks: 'omniauth_callbacks',
     registrations: 'registrations'
   }
   match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
-  match '/users/cancel' => 'users#account_cancel', via: [:get, :patch]
   get 'about'   => 'static_pages#about'
   get 'contact' => 'static_pages#contact'
   get 'setup'   => 'users#setup'
