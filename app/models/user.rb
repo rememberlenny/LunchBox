@@ -60,6 +60,18 @@ class User < ActiveRecord::Base
     user
   end
 
+  def self.process_all_users
+    uu = User.all
+    uu.each do |u|
+      config.user.current = Proc.new { u }
+      intercom_custom_data.user['twitter'] = u.username
+      intercom_custom_data.user['twitter_followers_count'] = u.twitter_followers_count
+      intercom_custom_data.user['twitter_friends_count'] = u.twitter_friends_count
+      intercom_custom_data.user['count_meeting_locations'] = [u.loc_bushwick, u.loc_downtown, u.loc_harlem, u.loc_midtown, u.loc_queens, u.loc_redhook, u.loc_ues, u.loc_uws, u.loc_williamsburg].select{|place| place == true }.size
+      intercom_custom_data.user['count_meeting_days'] = [ u.dow_mo, u.dow_tu, u.dow_we, u.dow_th, u.dow_fr, u.dow_sa, u.dow_su ].select{|day| day == true }.siz
+    end
+  end
+
   def email_verified?
     self.email && self.email !~ TEMP_EMAIL_REGEX
   end
