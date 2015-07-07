@@ -50,7 +50,7 @@ IntercomRails.config do |config|
 
   config.user.custom_data = {
     "twitter" => Proc.new { |user| user.username },
-    "count_meeting_locations" => Proc.new { |u| return [u.loc_bushwick, u.loc_downtown, u.loc_harlem, u.loc_midtown, u.loc_queens, u.loc_redhook, u.loc_ues, u.loc_uws, u.loc_williamsburg].select{|place| place == true }.size }
+    "count_meeting_locations" => Proc.new { |u| return [u.loc_bushwick, u.loc_downtown, u.loc_harlem, u.loc_midtown, u.loc_queens, u.loc_redhook, u.loc_ues, u.loc_uws, u.loc_williamsburg].select{|place| place == true }.size },
     "count_meeting_days" => Proc.new { |u| return [ u.dow_mo, u.dow_tu, u.dow_we, u.dow_th, u.dow_fr, u.dow_sa, u.dow_su ].select{|day| day == true }.size }
   }
 
