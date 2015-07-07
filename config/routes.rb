@@ -7,7 +7,8 @@ Rails.application.routes.draw do
     omniauth_callbacks: 'omniauth_callbacks',
     registrations: 'registrations'
   }
-  match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
+  match '/users/:id/deactivate'     => 'users#deactivate_user', via: [:get, :patch, :post], :as => :deactivate_user
+  match '/users/:id/finish_signup'  => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
 
   # Static pages
   get 'about'   => 'static_pages#about'

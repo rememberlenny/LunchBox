@@ -44,6 +44,20 @@ class UsersController < ApplicationController
     render :json => @user
   end
 
+  def deactivate_user
+    user = User.find(current_user.id)
+    places = ['loc_bushwick', 'loc_downtown', 'loc_harlem', 'loc_midtown', 'loc_queens', 'loc_redhook', 'loc_ues', 'loc_uws', 'loc_williamsburg']
+    times = ['dow_mo', 'dow_tu', 'dow_we', 'dow_th', 'dow_fr', 'dow_sa', 'dow_su']
+    places.each do |place|
+      user[place] = false
+    end
+    times.each do |time|
+      user[time] = false
+    end
+    user.save
+    redirect_to root_path , notice: 'Your profile was successfully updated.'
+  end
+
   # GET/PATCH /users/:id/finish_signup
   def finish_signup
     intercom_custom_data.user['finished_signup'] = Time.now
