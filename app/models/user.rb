@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
     user = User.find user_id
     follower_ids.to_a
     follower_ids.each do |follower_id|
-      ExternalFriendsTwitter.create(owner_id: user_id, user_id: follower_id)
+      ExternalFriends.create(owner_id: user_id, user_id: follower_id, source: 'twitter', relationship: 'follower')
     end
   end
 

@@ -11,11 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150708153426) do
+ActiveRecord::Schema.define(version: 20150708153916) do
 
-  create_table "external_friends_twitters", force: :cascade do |t|
+  create_table "external_friends", force: :cascade do |t|
     t.integer  "owner_id"
     t.integer  "user_id",           limit: 8
+    t.string   "relationship"
+    t.string   "source"
     t.string   "screen_name"
     t.string   "name"
     t.string   "profile_image_url"
