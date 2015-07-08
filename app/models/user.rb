@@ -14,6 +14,12 @@ class User < ActiveRecord::Base
 
   mount_uploader :avatar, AvatarUploader
 
+  def self.get_user_followers user_id
+    user = User.find user_id
+    username = user.username
+    followers = Twitter.followers(username)
+  end
+
   def self.find_for_oauth(auth, signed_in_resource = nil)
 
     # Get the identity and user if they exist
