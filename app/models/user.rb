@@ -35,7 +35,7 @@ class User < ActiveRecord::Base
       retry
     end
 
-    User.save_twitter_network( user_id, follower_ids, 'twitter', 'follower' )
+    User.save_external_network( user_id, follower_ids, 'twitter', 'follower' )
   end
 
   def self.find_for_oauth(auth, signed_in_resource = nil)
