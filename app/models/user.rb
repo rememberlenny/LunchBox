@@ -38,6 +38,21 @@ class User < ActiveRecord::Base
     User.save_external_network( user_id, follower_ids, 'twitter', 'follower' )
   end
 
+  def self.get_user_friends user_id
+    user = User.find user_id
+    follower_ids = Twit.friend_ids(user.username)
+    begin
+      follower_ids.to_a
+    rescue Twitter::Error::TooManyRequests => error
+      # NOTE: Your process could go to sleep for up to 15 minutes but if you
+      # retry any sooner, it will almost certainly fail with the same exception.
+      sleep error.rate_limit.reset_in + 1
+      retry
+    end
+
+    User.save_external_network( user_id, follower_ids, 'twitter', 'friends' )
+  end
+
   def self.find_for_oauth(auth, signed_in_resource = nil)
 
     # Get the identity and user if they exist
