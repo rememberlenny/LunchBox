@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150707154022) do
+ActiveRecord::Schema.define(version: 20150708140237) do
+
+  create_table "external_friends_twitters", force: :cascade do |t|
+    t.integer  "owner_id"
+    t.integer  "user_id"
+    t.string   "screen_name"
+    t.string   "name"
+    t.string   "profile_image_url"
+    t.string   "location"
+    t.string   "description"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
 
   create_table "identities", force: :cascade do |t|
     t.integer  "user_id"
