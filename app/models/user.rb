@@ -16,8 +16,15 @@ class User < ActiveRecord::Base
 
   def self.get_user_followers user_id
     user = User.find user_id
-    username = user.username
-    cursor_followers = Twitter.followers(username)
+    follower_ids = Twit.follower_ids(user.username)
+    begin
+      follower_ids.to_a
+    rescue Twitter::Error::TooManyRequests => error
+      # NOTE: Your process could go to sleep for up to 15 minutes but if you
+      # retry any sooner, it will almost certainly fail with the same exception.
+      sleep error.rate_limit.reset_in + 1
+      retry
+    end
   end
 
   def self.find_for_oauth(auth, signed_in_resource = nil)
