@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   TEMP_EMAIL_PREFIX = 'change@me'
   TEMP_EMAIL_REGEX = /\Achange@me/
   has_many :identities,  dependent: :destroy
+  has_many :external_friends_twitter,  dependent: :destroy
 
   # Include default devise modules. Others available are:
   # :confirmable,
@@ -14,6 +15,14 @@ class User < ActiveRecord::Base
 
   mount_uploader :avatar, AvatarUploader
 
+  def self.save_twitter_network user_id, follower_ids
+    user = User.find user_id
+    follower_ids.to_a
+    follower_ids.each do |follower_id|
+      ExternalFriendsTwitter.create(owner_id: user_id, user_id: follower_id)
+    end
+  end
+
   def self.get_user_followers user_id
     user = User.find user_id
     follower_ids = Twit.follower_ids(user.username)
@@ -25,6 +34,8 @@ class User < ActiveRecord::Base
       sleep error.rate_limit.reset_in + 1
       retry
     end
+
+    User.save_twitter_network( user_id, follower_ids)
   end
 
   def self.find_for_oauth(auth, signed_in_resource = nil)
