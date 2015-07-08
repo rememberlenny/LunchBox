@@ -15,11 +15,11 @@ class User < ActiveRecord::Base
 
   mount_uploader :avatar, AvatarUploader
 
-  def self.save_twitter_network user_id, follower_ids
+  def self.save_external_network user_id, follower_ids, source, relationship
     user = User.find user_id
     follower_ids.to_a
     follower_ids.each do |follower_id|
-      ExternalFriends.create(owner_id: user_id, user_id: follower_id, source: 'twitter', relationship: 'follower')
+      ExternalFriends.create(owner_id: user_id, user_id: follower_id, source: source, relationship: relationship)
     end
   end
 
@@ -35,7 +35,7 @@ class User < ActiveRecord::Base
       retry
     end
 
-    User.save_twitter_network( user_id, follower_ids)
+    User.save_twitter_network( user_id, follower_ids, 'twitter', 'follower' )
   end
 
   def self.find_for_oauth(auth, signed_in_resource = nil)
