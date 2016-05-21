@@ -13,6 +13,7 @@
       <%= link_to "Connect", omniauth_authorize_path(resource_name, provider), class: 'button large-12   secondary large' %><br />
     <% end -%>
   <% end -%>
+  <br>
   <small>The link above will connect your Twitter account to Lunc.ch to find people you would enjoy meeting by reviewing your replies, hearts, and relationships.</small>
   <% if params['login'] == 'full' %>
     <%= render 'new_content' %>
