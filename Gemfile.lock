@@ -506,8 +506,6 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 3.0)
       netrc (~> 0.7)
-    rollbar (2.4.0)
-      multi_json
     rspec (3.4.0)
       rspec-core (~> 3.4.0)
       rspec-expectations (~> 3.4.0)
@@ -706,7 +704,6 @@ DEPENDENCIES
   refile
   refile-mini_magick
   refile-s3
-  rollbar (~> 2.4.0)
   rspec-activemodel-mocks
   rspec-rails
   rspec-sidekiq
