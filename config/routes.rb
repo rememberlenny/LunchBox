@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  authenticate :user, lambda { |user| user.admin? } do
+    mount Blazer::Engine, at: "blazer"
+    mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  end
   root 'static_pages#home'
 
   # User related
