@@ -1,15 +1,13 @@
-require 'rollbar/rails'
 Rollbar.configure do |config|
   # Without configuration, Rollbar is enabled in all environments.
   # To disable in specific environments, set config.enabled=false.
-  
-  config.access_token = '5c8bb48dae6b49cdbfb6106f92bf0746'
+
+  config.access_token = "5c8bb48dae6b49cdbfb6106f92bf0746"
 
   # Here we'll disable in 'test':
   if Rails.env.test?
     config.enabled = false
   end
-  
 
   # By default, Rollbar will try to call the `current_user` controller method
   # to fetch the logged-in user object, and then call that object's `id`,
@@ -39,7 +37,7 @@ Rollbar.configure do |config|
   # config.use_async = true
   # Supply your own async handler:
   # config.async_handler = Proc.new { |payload|
-  #  Thread.new { Rollbar.process_payload_safely(payload) }
+  #  Thread.new { Rollbar.process_from_async_handler(payload) }
   # }
 
   # Enable asynchronous reporting (using sucker_punch)
@@ -48,5 +46,5 @@ Rollbar.configure do |config|
   # Enable delayed reporting (using Sidekiq)
   # config.use_sidekiq
   # You can supply custom Sidekiq options:
-  # config.use_sidekiq 'queue' => 'my_queue'
+  # config.use_sidekiq 'queue' => 'default'
 end

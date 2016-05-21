@@ -17,6 +17,7 @@ gem 'phrasie'
 gem "ruby-readability", :require => 'readability'
 
 gem 'mixpanel-ruby'
+gem 'sendwithus_ruby_action_mailer'
 
 # Search
 gem 'sitemap_generator'

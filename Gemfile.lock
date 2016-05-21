@@ -553,6 +553,9 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    send_with_us (1.10.2)
+    sendwithus_ruby_action_mailer (0.2.5)
+      send_with_us (>= 1.9.0)
     settingslogic (2.0.9)
     sexp_processor (4.7.0)
     shellany (0.0.1)
@@ -710,6 +713,7 @@ DEPENDENCIES
   ruby-readability
   sass-rails
   sdoc
+  sendwithus_ruby_action_mailer
   settingslogic
   shoulda-matchers
   sidekiq
