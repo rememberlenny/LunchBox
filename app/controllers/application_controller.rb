@@ -2,9 +2,9 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
-  before_action :authenticate_user!
-  before_action :check_user_status
-  before_filter :ensure_signup_complete, only: [:new, :create, :update, :destroy]
+  # before_action :authenticate_user!
+  # before_action :check_user_status
+  # before_filter :ensure_signup_complete, only: [:new, :create, :update, :destroy]
 
   def check_user_status
     if !current_user.nil?

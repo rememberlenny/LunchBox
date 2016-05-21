@@ -1,11 +1,19 @@
 <div class="large-6 large-centered column text-center">
-
+  <h1>Lunc.ch</h1>
+  <p><strong>Meet your online community IRL</strong></p>
+</div>
+<div class="large-4 large-centered column text-center">
+  <p>Get a weekly suggestion to meet one new person in your online network in person.
+  Connect your social profiles, get recommended, and decide when to meet.</p>
+  <br>
+</div>
+<div class="large-4 large-centered column text-center">
   <%- if devise_mapping.omniauthable? %>
     <%- resource_class.omniauth_providers.each do |provider| %>
-      <%= link_to "Sign in with #{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider), class: 'button large-8   secondary large' %><br />
+      <%= link_to "Connect", omniauth_authorize_path(resource_name, provider), class: 'button large-12   secondary large' %><br />
     <% end -%>
   <% end -%>
-
+  <small>The link above will connect your Twitter account to Lunc.ch to find people you would enjoy meeting by reviewing your replies, hearts, and relationships.</small>
   <% if params['login'] == 'full' %>
     <%= render 'new_content' %>
     <%= render "devise/shared/links" %>
