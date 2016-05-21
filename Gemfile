@@ -1,48 +1,198 @@
 source 'https://rubygems.org'
-ruby '2.1.6'
+ruby '2.3.0'
 
-gem 'rails'
-gem 'bcrypt',                  '3.1.7'
-gem 'faker',                   '1.4.2'
-gem 'carrierwave',             '0.10.0'
-gem 'mini_magick',             '3.8.0'
-gem 'fog',                     '1.23.0'
-gem 'sass-rails',              '5.0.0.beta1'
-gem 'uglifier',                '2.5.3'
-gem 'coffee-rails',            '4.1.0'
-gem 'jquery-rails',            '4.0.0.beta2'
-gem 'turbolinks',              '2.3.0'
-gem 'jbuilder',                '2.2.3'
-gem 'sdoc',                    '0.4.0', group: :doc
-gem 'will_paginate',           '3.0.7'
-gem 'will_paginate-foundation'
-gem 'foundation-rails'
+gem 'rails', '~> 4.1.6'
+
+#
+# PLATFORM SPECIFIC
+#
+# OSX
+gem 'rb-fsevent', group: [:development, :test]        # monitor file changes without hammering the disk
+gem 'terminal-notifier-guard', group: [:development]  # notify terminal when specs run
+gem 'terminal-notifier', group: [:development]
+# LINUX
+# gem 'rb-inotify', :group => [:development, :test]   # monitor file changes without hammering the disk
+
+gem 'phrasie'
+gem "ruby-readability", :require => 'readability'
+
+gem 'mixpanel-ruby'
+
+# Search
+gem 'sitemap_generator'
+
+gem 'curb'
+gem 'nokogiri'
+gem 'opengraph_parser'
+gem 'blazer'
+
+# Monitoring
+gem 'rack-timeout', '~> 0.1.0beta4'
+gem 'newrelic_rpm'
+gem 'intercom-rails'
+gem 'airbrake', '~> 3.2.1'         # use with airbrake.io or errbit
+# gem 'airbrake_user_attributes'  # use with self-hosted errbit; see config/initializers/airbrake.rb
+# gem 'rack-google-analytics'
+
+# Data
+gem 'pg'
+gem 'dalli'                     # memcached
+gem "smarter_csv"
+gem "cocoon"
+gem "groupdate"
+gem "active_median"
+gem "hightop"
+gem "chartkick"
+gem 'kaminari'
+# gem 'schema_plus'             # add better index and foreign key support
+# gem 'jbuilder'
+
+# Assets
+gem 'sass-rails'
+gem 'haml-rails'
 gem 'simple_form'
+gem 'uglifier'
+gem 'headjs-rails'
+gem 'hogan_assets'
+
+# Javascript
+gem 'jquery-rails'
+gem 'turbolinks'
+gem 'jquery-turbolinks'
+gem 'nprogress-rails'
+
+# CoffeeScript
+# Not needed in production if precompiling assets
+gem 'coffee-rails'
+# Uncomment if node.js is not installed
+# gem 'therubyracer', platforms: :ruby
+
+# Design
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'fog'
+gem 'foundation-rails'
+
+# gem 'bourbon'
+# gem 'neat'
+# gem 'country_select'
+
+# Email
+gem 'premailer-rails'
 gem 'twitter'
+gem 'bitly'
+
+# Authentication
 gem 'devise'
 gem 'devise_invitable'
 gem 'devise_uid'
+gem 'cancancan', '~> 1.9'
 gem 'omniauth'
+gem 'omniauth-facebook'
 gem 'omniauth-twitter'
-gem 'intercom-rails'
-gem 'rollbar', '~> 1.5.3'
-gem 'sendwithus_ruby_action_mailer'
+gem 'rollbar', '~> 2.4.0'
+# gem 'omniauth-persona'
+# gem 'omniauth-google-oauth2'
+# gem 'omniauth-linkedin'
+
+# Admin
+gem 'rails_admin'
+
+# Workers
+gem 'sidekiq'
+gem 'devise-async'
+gem 'sinatra', require: false
+gem 'whenever', :require => false
+
+# Utils
+gem 'addressable'
+gem 'settingslogic'
+gem 'acts-as-taggable-on', '~> 3.4'
+gem 'acts_as_votable', '~> 0.10.0'
+gem 'friendly_id', '~> 5.1.0'
+
+# Uploads
+gem "refile", require: "refile/rails"
+gem "refile-mini_magick"
+gem "refile-s3"
+gem 'fog-aws'
+gem 'aws-sdk'
+
+# SEO
+gem 'meta-tags'
+gem "opengraph_parser"
+
+group :development do
+  # Docs
+  gem 'sdoc', require: false    # bundle exec rake doc:rails
+
+  # Errors
+  gem 'better_errors'
+  gem 'binding_of_caller'     # extra features for better_errors
+  gem 'meta_request'          # for rails_panel chrome extension
+
+  # Deployment
+  # gem 'capistrano'
+
+  # Guard
+  gem 'guard-rspec'
+  # gem 'guard-livereload'
+  # gem 'rack-livereload'
+end
 
 group :development, :test do
-  gem 'sqlite3',     '1.3.9'
-  gem 'byebug',      '3.4.0'
-  gem 'web-console', '2.0.0.beta3'
-  gem 'spring',      '1.1.3'
+  # Use spring or zeus
+  gem 'spring'                  # keep application running in the background
+  gem 'spring-commands-rspec'
+  # gem 'zeus'                  # required in gemfile for guard
+
+  # Debugging
+  gem 'pry'                   # better than irb
+  # gem 'byebug'                # ruby 2.0 debugger with built-in pry
+  gem 'pry-rails'               # adds rails specific commands to pry
+  gem 'pry-byebug'              # add debugging commands to pry
+  gem 'pry-stack_explorer'      # navigate call stack
+  # gem 'pry-rescue'            # start pry session on uncaught exception
+  # gem 'pry-doc'               # browse docs from console
+  # gem 'pry-git'               # add git support to console
+  # gem 'pry-remote'            # connect remotely to pry console
+  # gem 'coolline'              # sytax highlighting as you type
+  # gem 'coderay'               # use with coolline
+  gem 'awesome_print'           # pretty pring debugging output
+
+  # Testing
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'ffaker'
+  gem 'capybara-webkit'
+  # gem 'poltergeist'           # alternative to capybara-webkit
+  # gem 'capybara-firebug'
+  # gem 'launchy'               # save_and_open_page support for rspec
+  # gem 'zeus-parallel_tests'   # speed up lengthy tests
+
+  # Logging
+  gem 'quiet_assets'
 end
 
 group :test do
-  gem 'minitest-reporters', '1.0.5'
-  gem 'mini_backtrace',     '0.1.3'
-  gem 'guard-minitest',     '2.3.1'
+  gem 'minitest'                # include minitest to prevent require 'minitest/autorun' warnings
+
+  # Helpers
+  gem 'shoulda-matchers'
+  gem 'database_cleaner'
+  # gem 'timecop'               # Mock Time
+
+  # Coverage
+  gem 'simplecov', require: false
+  # gem 'coveralls', :require => false
+
+  gem 'rspec-sidekiq'
+  gem 'rspec-activemodel-mocks'
 end
 
 group :production do
-  gem 'pg',             '0.17.1'
-  gem 'rails_12factor', '0.0.2'
-  # gem 'unicorn',        '4.8.3'
+  gem 'memcachier'              # heroku add-on for auto config of dalli
+  gem 'unicorn'
+  gem 'rails_12factor'          # https://devcenter.heroku.com/articles/rails4
 end
+
